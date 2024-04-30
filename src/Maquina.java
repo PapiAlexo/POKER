@@ -6,6 +6,7 @@ public class Maquina {
     protected ArrayList<Carta> mano;
     protected int dinero;
     protected ArrayList<Carta> manoMesa; //Para poder comparrar la mano con la mesa y apostar
+    protected String nombre="Máquina";
 
 
     /**
