@@ -1,57 +1,34 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class Mano {
-    public static int[] deterctarMano(ArrayList<Carta> mano, ArrayList<Carta> manoMesa){
-        int[]valorMano= {0,0};
+    public static int deterctarMano(ArrayList<Carta> mano, ArrayList<Carta> manoMesa){
         if (detectarEscaleraColor(mano, manoMesa)>0){
-            valorMano[0]=8;
-            valorMano[1]=detectarEscaleraColor(mano, manoMesa);
-            return valorMano;
+            return detectarEscaleraColor(mano, manoMesa)+800;
         }
         if (detectarCartasIguales(mano, manoMesa,4)>0){
-            valorMano[0]=7;
-            valorMano[1]=detectarCartasIguales(mano, manoMesa,4);
-            return valorMano;
+            return detectarCartasIguales(mano, manoMesa,4)+700;
         }
-        if (detectarFull(mano, manoMesa)>0){
-            valorMano[0]=6;
-            valorMano[1]=detectarFull(mano, manoMesa);
-            return valorMano;
+        if (detectarFull(mano, manoMesa)>0){ /*Pendiente*/
+            return detectarFull(mano, manoMesa)+600;
         }
         if (detectarColor(mano, manoMesa)>0){
-            valorMano[0]=5;
-            valorMano[1]=detectarColor(mano, manoMesa);
-            return valorMano;
+            return detectarColor(mano, manoMesa)+500;
         }
         if (detectarEscalera(mano, manoMesa)>0){
-            valorMano[0]=4;
-            valorMano[1]=detectarEscalera(mano, manoMesa);
-            return valorMano;
+            return detectarEscalera(mano, manoMesa)+400;
         }
         if (detectarCartasIguales(mano, manoMesa,3)>0){
-            valorMano[0]=3;
-            valorMano[1]=detectarCartasIguales(mano, manoMesa,3);
-            return valorMano;
+            return detectarCartasIguales(mano, manoMesa,3)+300;
         }
         if (detectarDoblePereja(mano, manoMesa)>0){
-            valorMano[0]=2;
-            valorMano[1]=detectarDoblePereja(mano, manoMesa);
-            return valorMano;
+            return detectarDoblePereja(mano, manoMesa)+200;
         }
         if (detectarCartasIguales(mano, manoMesa,2)>0){
-            valorMano[0]=1;
-            valorMano[1]=detectarCartasIguales(mano, manoMesa,2);
-            return valorMano;
+            return detectarCartasIguales(mano, manoMesa,2)+100;
         }
-        valorMano[1]=cartaAlta(mano, manoMesa);
-        return valorMano;
+        return cartaAlta(mano, manoMesa);
     }
-
-
-
-
     private static int detectarEscalera(ArrayList<Carta> mano,ArrayList<Carta> manoMesa) {
         int[] cartas = new int[manoMesa.size() + mano.size()]; /*Guardar valores de las cartas de la mano y de la mesa*/
         /*Llenamos la array*/
@@ -85,7 +62,6 @@ public class Mano {
         return valorEscalera;
     }
 
-
     private static int detectarColor(ArrayList<Carta> mano,ArrayList<Carta> manoMesa){
         int contadorColor;
         if(mano.get(0).getPalo()==mano.get(1).getPalo()){ /*Comprobamos que las cartas de las manos sean iguales */
@@ -96,7 +72,7 @@ public class Mano {
                     contadorColor++;
                 }
             }
-            return (contadorColor==5)?cartaAlta(mano,manoMesa):0; /*Con este if devolvemos 0 si no se han encontrado las 3 cartas o el valor de la carta ams alta de la mano*/
+            return (contadorColor==5)?cartaAlta(mano, manoMesa):0; /*Con este if devolvemos 0 si no se han encontrado las 3 cartas o el valor de la carta ams alta de la mano*/
         }else{
             /*Si las cartas de la mano son diferentes cogemos la primera carta y buscamos las 4 que nos faltan y si no se han encontrado buscamos con la siguiente carta*/
             contadorColor=1;
@@ -169,9 +145,9 @@ public class Mano {
         }
         return valorEscalera;
     }
-    private static int detectarCartasIguales(ArrayList<Carta> mano,ArrayList<Carta> manoMesa,int cuantoBuscar){/*En este caso necesitaremos recibir el numero de cartas iguales que buscar, ya que este metodo nos sirve para poker(4),trio(3) y pareja(2)*/
+    private static int detectarCartasIguales(ArrayList<Carta> mano,ArrayList<Carta> manoMesa,int cuantoBuscar){
         int contadorNumeros;
-        if(mano.get(0).getNumero()==mano.get(1).getNumero()){/*Al igual que en los metodos anteriores separamos los casos*/
+        if(mano.get(0).getNumero()==mano.get(1).getNumero()){
             contadorNumeros=2;
             for (int i=0;i<manoMesa.size();i++){
                 if (manoMesa.get(i).getNumero() == mano.get(0).getNumero()) {
@@ -194,13 +170,11 @@ public class Mano {
             return (contadorNumeros==cuantoBuscar)?mano.get(contadorVueltas-1).getNumero():0;
         }
     }
-    private static int detectarDoblePereja(ArrayList<Carta> mano,ArrayList<Carta> manoMesa){
-       /*En este caso contamos con tres posibles casos, uno en el que tenemos una pareja en la mano y otra en la mesa(caso visto en el if), otro en el que temngo una carta en la mano,
-       su pareja en la mesa y otra pareja en la mesa (caso else if) y por ultimno el caso de tener una carta de cada pareja en la mano (else)*/
+    private static int detectarDoblePereja(ArrayList<Carta> mano,ArrayList<Carta> manoMesa){/*todo dar una vukta 1-3*/
         int contadorNumeros;
-        if(mano.get(0).getNumero()==mano.get(1).getNumero()&&buscarCartasIgualesEnMesa(mano,manoMesa,2)){
+        if(mano.get(0).getNumero()==mano.get(1).getNumero()&&buscarCartasIgualesEnMesa(mano, manoMesa,2)){
             return mano.get(0).getNumero();
-        }else if (buscarCartasIgualesEnMesa(mano,manoMesa,2)) {
+        }else if (buscarCartasIgualesEnMesa(mano, manoMesa,2)) {
             contadorNumeros=1;
             int contadorVueltas=0;/*Con tesa variable sabemos cuando hemos salido del bucle para saber que cartas sde la mesa hemos utilizado para averiguar el color*/
             for (int i = 0; i <mano.size()&&contadorNumeros!=2; i++) {
@@ -226,22 +200,21 @@ public class Mano {
                     }
                 }
             }
-            return (contadorNumeros==4)?cartaAlta(mano,manoMesa):0;
+            return (contadorNumeros==4)?cartaAlta(mano, manoMesa):0;
         }
     }
     private static int detectarFull(ArrayList<Carta> mano,ArrayList<Carta> manoMesa){
-        if (buscarCartasIgualesEnMesa(mano,manoMesa,3)&&detectarCartasIguales(mano,manoMesa,2)>0){
-            return detectarCartasIguales(mano,manoMesa,2);
+        if (buscarCartasIgualesEnMesa(mano, manoMesa,3)&&detectarCartasIguales(mano, manoMesa,2)>0){
+            return detectarCartasIguales(mano, manoMesa,2);
         }
-        else if (detectarCartasIguales(mano,manoMesa,2)>0&&detectarCartasIguales(mano,manoMesa,3)>0) {
-            return cartaAlta(mano,manoMesa);
-        }else if (buscarCartasIgualesEnMesa(mano,manoMesa,2)&&detectarCartasIguales(mano,manoMesa,3)>0){
-            return detectarCartasIguales(mano,manoMesa,3);
+        else if (detectarCartasIguales(mano, manoMesa,2)>0&&detectarCartasIguales(mano, manoMesa,3)>0) {
+            return cartaAlta(mano, manoMesa);
+        }else if (buscarCartasIgualesEnMesa(mano, manoMesa,2)&&detectarCartasIguales(mano, manoMesa,3)>0){
+            return detectarCartasIguales(mano, manoMesa,3);
         }
         return 0;
     }
     private static boolean buscarCartasIgualesEnMesa(ArrayList<Carta> mano,ArrayList<Carta> manoMesa,int numCartas){
-        /*buscamos el numeor de cartas que querramos iguales, pero solo en la mesa*/
         int contadorCarta;
         for (int i=0;i<(manoMesa.size()-1);i++){
             contadorCarta=1;
@@ -254,4 +227,5 @@ public class Mano {
         }
         return false;
     }
+
 }
