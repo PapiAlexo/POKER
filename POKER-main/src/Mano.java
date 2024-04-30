@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 
 public class Mano {
-    public static int[] deterctarMano(ArrayList<Carta> mano, ArrayList<Carta> manoMesa){
+    public static int[] detectarMano(ArrayList<Carta> mano, ArrayList<Carta> manoMesa){
         int[]valorMano= {0,0};
         if (detectarEscaleraColor(mano, manoMesa)>0){
             valorMano[0]=8;

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Maquina {
     protected ArrayList<Carta> mano;
+    protected String nombre="Máquina";
     protected int dinero;
     protected ArrayList<Carta> manoMesa; //Para poder comparrar la mano con la mesa y apostar
 

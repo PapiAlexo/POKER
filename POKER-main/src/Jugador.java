@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Jugador {
     protected ArrayList <Carta> mano;
+    protected String nombre="Jugador";
     protected int dinero;
 
     public Jugador( int dinero) {
