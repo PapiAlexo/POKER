@@ -1,4 +1,8 @@
 
+import utilidades.Util;
+
+import java.io.*;
+import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class Maquina {
@@ -83,14 +87,28 @@ public class Maquina {
                 return dineroApostar;
             }
             else{
-                int[] valorApuesta= Mano.deterctarMano(mano,manoMesa);
-                int dineroApostar = apostar(valorApuesta);
-                if (dineroApostar<apuesta){
-                    dinero-=apuesta;
-                    return apuesta;
+                File archivoApuesta = new File("archivoApuesta");
+                try{
+                    if (archivoApuesta.createNewFile()){
+                        int[] valorApuesta= Mano.deterctarMano(mano,manoMesa);
+                        int dineroApostar = apostar(valorApuesta);
+                        FileWriter escritor = new FileWriter(archivoApuesta);
+                        escritor.write(dineroApostar);/*Escrivimos el dinero maximo que se va a apostar*/
+                    }else{
+                        FileReader leer = new FileReader(archivoApuesta);
+                        BufferedReader lector = new BufferedReader(leer);
+                        int dineroApostar=Integer.parseInt(lector.readLine());
+                        dineroApostar=dineroApostar*(Util.getNumber(60,100)/100); /*Ponemos el porcentaje par que las apuestas sean mas aleatorias*/
+                        FileWriter escritor = new FileWriter(archivoApuesta);
+                        escritor.write(Integer.parseInt(String.valueOf(lector))-dineroApostar); /*En el archivo actualizamos el dinero maximo que se va a apostar*/
+                        if (dineroApostar<apuesta){dineroApostar=apuesta;}/*Si la apuesta supera el maximo se igualan las cantidades*/
+                        if (dineroApostar>dinero){dineroApostar=dinero;} /*All in*/
+                        dinero-=dineroApostar;
+                        return dineroApostar;
+                    }
+                } catch (IOException e) {
+                    System.out.println("Problemas con el archivo archivoApuesta.txt");
                 }
-                dinero-=dineroApostar;
-                return dineroApostar;
             }
         }
 
