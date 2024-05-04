@@ -94,6 +94,8 @@ public class Maquina {
                         int dineroApostar = apostar(valorApuesta);
                         FileWriter escritor = new FileWriter(archivoApuesta);
                         escritor.write(dineroApostar);/*Escrivimos el dinero maximo que se va a apostar*/
+                        escritor.close();
+                        return dineroApostar;
                     }else{
                         FileReader leer = new FileReader(archivoApuesta);
                         BufferedReader lector = new BufferedReader(leer);
@@ -101,6 +103,7 @@ public class Maquina {
                         dineroApostar=dineroApostar*(Util.getNumber(60,100)/100); /*Ponemos el porcentaje par que las apuestas sean mas aleatorias*/
                         FileWriter escritor = new FileWriter(archivoApuesta);
                         escritor.write(Integer.parseInt(String.valueOf(lector))-dineroApostar); /*En el archivo actualizamos el dinero maximo que se va a apostar*/
+                        escritor.close();
                         if (dineroApostar<apuesta){dineroApostar=apuesta;}/*Si la apuesta supera el maximo se igualan las cantidades*/
                         if (dineroApostar>dinero){dineroApostar=dinero;} /*All in*/
                         dinero-=dineroApostar;
@@ -108,10 +111,10 @@ public class Maquina {
                     }
                 } catch (IOException e) {
                     System.out.println("Problemas con el archivo archivoApuesta.txt");
+                    return -1;
                 }
             }
         }
-
     }
     private int apostar(int[] puntajeMano){
         int apuesta=0;
