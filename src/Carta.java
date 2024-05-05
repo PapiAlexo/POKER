@@ -17,7 +17,27 @@ public class Carta {
     {
         if(palo == Palo.PICAS)
         {
-            System.out.println(" "+numero+" de PICAS");
+            if(numero == 11)
+            {
+                System.out.println("J de PICAS");
+            }
+            else if(numero == 12)
+            {
+                System.out.println("Q de PICAS");
+            }
+            else if(numero == 13)
+            {
+                System.out.println("K de PICAS");
+            }
+            else if(numero == 1)
+            {
+                System.out.println("A de PICAS");
+            }
+            else
+            {
+                System.out.println(numero+" de PICAS");
+            }
+
             System.out.println("┌─────────────┐");
             if(numero>9)
             {
@@ -40,7 +60,26 @@ public class Carta {
         }
         if(palo == Palo.DIAMANTES)
         {
-            System.out.println(" "+numero+" de DIAMANTES");
+            if(numero == 11)
+            {
+                System.out.println("J de DIAMANTES");
+            }
+            else if(numero == 12)
+            {
+                System.out.println("Q de DIAMANTES");
+            }
+            else if(numero == 13)
+            {
+                System.out.println("K de DIAMANTES");
+            }
+            else if(numero == 1)
+            {
+                System.out.println("A de DIAMANTES");
+            }
+            else
+            {
+                System.out.println(numero+" de DIAMANTES");
+            }
             System.out.println("┌─────────────┐");
             if(numero>9)
             {
@@ -64,7 +103,26 @@ public class Carta {
         }
         if(palo == Palo.TREBOL)
         {
-            System.out.println(" "+numero+" de TREBOL");
+            if(numero == 11)
+            {
+                System.out.println("J de TREBOL");
+            }
+            else if(numero == 12)
+            {
+                System.out.println("Q de TREBOL");
+            }
+            else if(numero == 13)
+            {
+                System.out.println("K de TREBOL");
+            }
+            else if(numero == 1)
+            {
+                System.out.println("A de TREBOL");
+            }
+            else
+            {
+                System.out.println(numero+" de TREBOL");
+            }
             System.out.println("┌─────────────┐");
             if(numero>9)
             {
@@ -87,7 +145,26 @@ public class Carta {
         }
         if(palo == Palo.CORAZONES)
         {
-            System.out.println(" "+numero+" de CORAZONES");
+            if(numero == 11)
+            {
+                System.out.println("J de CORAZONES");
+            }
+            else if(numero == 12)
+            {
+                System.out.println("Q de CORAZONES");
+            }
+            else if(numero == 13)
+            {
+                System.out.println("K de CORAZONES");
+            }
+            else if(numero == 1)
+            {
+                System.out.println("A de CORAZONES");
+            }
+            else
+            {
+                System.out.println(numero+" de CORAZONES");
+            }
             System.out.println("┌─────────────┐");
             if(numero>9)
             {

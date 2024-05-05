@@ -20,19 +20,19 @@ public class Mesa {
         {
             System.out.println("No se puede mostrar ya que es la CIEGA. No hay cartas aun en al mesa.");
         }
-        if(fase==2) {
-            for(int i=0; i<2; i++) {
-                Carta cartaActual = mano.get(i);
-                cartaActual.imprimir();
-            }
-        }
-        if(fase==3) {
+        if(fase==2) { // muestra tres cartas
             for(int i=0; i<3; i++) {
                 Carta cartaActual = mano.get(i);
                 cartaActual.imprimir();
             }
         }
-        if(fase==4) {
+        if(fase==3) { // muestra cuatro cartas
+            for(int i=0; i<4; i++) {
+                Carta cartaActual = mano.get(i);
+                cartaActual.imprimir();
+            }
+        }
+        if(fase==4) { // muestra cinco cartas
             for(int i=0; i<mano.size(); i++) {
                 Carta cartaActual = mano.get(i);
                 cartaActual.imprimir();

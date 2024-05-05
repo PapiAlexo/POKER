@@ -53,7 +53,7 @@ public class Maquina {
     }
 
     /**
-     * Metodo para añadir el dinero que gaen
+     * Metodo para añadir el dinero que ganen
      * @param dinero el dinero ganado
      */
     public void addDinero( int dinero){
@@ -63,7 +63,7 @@ public class Maquina {
         this.dinero-=dinero;
     }
     /**
-     * Metodo para apostar emn las dos primeras rondas
+     * Metodo para apostar en las dos primeras rondas
      * @param numFase fase en la que esta la aprtida
      * @param apuesta la puesta que hay en la mesa
      * @return numero de la apuesta
@@ -210,5 +210,14 @@ public class Maquina {
 
     public int getDinero() {
         return dinero;
+    }
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
+    }
+    public int igualarSubida(int apuestaJugador, int apuestaMaquina)
+    {
+        int igualar = apuestaJugador - apuestaMaquina; /*Calculamos la cantidad que debe igualar*/
+        setDinero(getDinero() - igualar); /*Restamos la cantidad*/
+        return apuestaMaquina; /*Ya que es la apuesta que se ha igualado*/
     }
 }

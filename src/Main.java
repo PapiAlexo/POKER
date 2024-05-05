@@ -657,6 +657,7 @@ public class Main {
                             case 3:
                                 System.out.println("Has selecionado IGUALAR.");
                                 System.out.println("-------------------------------------------");
+
                                 apuestaJugador = jugador.igualar(apuestaMaquina); /*Al ser la primera ronda no hay opcion a realizar All IN*/
                                 mesa.añadirDineroApuestas(apuestaJugador);/* Ponemos el dinero en la mesa*/
                                 break;
