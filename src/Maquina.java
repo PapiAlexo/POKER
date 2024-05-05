@@ -60,7 +60,7 @@ public class Maquina {
      * Metodo para añadir el dinero que gaen
      * @param dinero el dinero ganado
      */
-    public void addDinero( int dinero){
+    public void addDinero(int dinero){
         this.dinero+=dinero;
     }
     private void minusDinero( int dinero){
@@ -68,27 +68,26 @@ public class Maquina {
     }
     /**
      * Metodo para apostar emn las dos primeras rondas
-     * @param numFase fase en la que esta la aprtida
-     * @param apuesta la puesta que hay en la mesa
+     * @param mesaDescubierta bandera para saber si se han descubierto nlas cartas de la mesa
      * @return numero de la apuesta
      */
-    public int obtenerCalidadMano(int numFase, int apuesta) {
+    public int obtenerCalidadMano(boolean mesaDescubierta) {
         /*Vamos a utilizar el booleano para dividir el codigo (ciega o resto) */
-        if (numFase==0){
-            return valorManoCiega(apuesta);
+        if (!mesaDescubierta){
+            return valorManoCiega();
         }
         else {
             if (manoMesa.size()!=5){
                 return valorManoSinMesaCompleta();
             }
             else{
-                return Mano.deterctarMano(mano,manoMesa);
+                return Mano.detectarMano(mano,manoMesa);
             }
         }
 
 
     }
-    private int valorManoCiega(int apuesta){
+    private int valorManoCiega(){
         CalidadMano calidadMano = CalidadMano.MALA;
 
 
@@ -110,22 +109,18 @@ public class Maquina {
             /*Como una mano perfecta es ya de porsi alta, pues no vamos a prejuntar*/
             calidadMano = CalidadMano.MUY_BUENA;
         }
-        if (calidadMano==CalidadMano.MUY_BUENA&&apuesta<10){
-            return 10;
-        }
-        if (calidadMano==CalidadMano.BUENA&&apuesta<5){
-            return 5;
-        }
-        if (calidadMano==CalidadMano.REGULAR&&apuesta<2){
-            return 2;
-        }
-        return apuesta;
+        return switch (calidadMano){
+            case MALA -> 1;
+            case REGULAR -> 2;
+            case BUENA -> 5;
+            case MUY_BUENA -> 10;
+        };
     }
     private int valorManoSinMesaCompleta(){
         if (detectarEscaleraColor()>0){ /*EscaleraColor 3*/
             return detectarEscaleraColor()+800;
         }
-        if (detectarCartasIguales(4)>0){ /*Poker*/
+        if (detectarCartasIguales(4)>0){
             return detectarCartasIguales(4)+700;
         }
         if (detectarFull()>0){ /*Pendiente*/
@@ -137,7 +132,7 @@ public class Maquina {
         if (detectarEscalera()>0){ /*Escalera 4 */
             return detectarEscalera()+400;
         }
-        if (detectarCartasIguales(3)>0){ /*Lo dejamos para las cartas altas*/
+        if (detectarCartasIguales(3)>0){
             return detectarCartasIguales(3)+300;
         }
         if (detectarDoblePereja()>0){
@@ -347,5 +342,7 @@ public class Maquina {
         return false;
     }
 
-
+    public int getDinero() {
+        return dinero;
+    }
 }
