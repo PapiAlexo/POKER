@@ -25,7 +25,8 @@ public class Jugador {
      * Metodo para vaciar la mano de la maquina
      */
     public void cleanMano(){
-        for (int i=0;i<2;i++){
+
+        while (!mano.isEmpty()) {
             mano.remove(0);
         }
     }

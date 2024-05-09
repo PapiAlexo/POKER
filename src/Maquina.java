@@ -50,9 +50,15 @@ public class Maquina {
      * Metodo para vaciar la mano de la maquina
      */
     public void cleanMano() {
-        for (int i = 0; i < 2; i++) {
+        while (!mano.isEmpty()) {
             mano.remove(0);
         }
+    }
+    public void cleanManoMesa() {
+        while (!manoMesa.isEmpty()) {
+            manoMesa.remove(0);
+        }
+
     }
 
     /**

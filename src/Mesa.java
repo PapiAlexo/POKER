@@ -62,7 +62,7 @@ public class Mesa {
      * limpia las cartas que haya en la mesa al terminar la ronda
      */
     public void cleanMano(){
-        for (int i=0;i<mano.size();i++){
+        while (!mano.isEmpty()) {
             mano.remove(0);
         }
     }
