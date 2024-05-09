@@ -49,7 +49,7 @@ public class Main2 {
 
             if(ronda > 1 ){
                 jugador.menuContinuar();
-                opc = teclado.nextInt();
+                opc = Util.leerOpcMenu(teclado,2);
                 switch(opc)
                 {
                     case 1:
@@ -70,9 +70,10 @@ public class Main2 {
             if (turno%2==0) /*EMPIEZA JUGANDO EL JUGADOR*/
             {
                 do { /*BUCLE PARA LA RONDA*/
-                    fase++;
                     //############ CIEGA DE JUGADOR FASE 1 #########################################################################################################################################################################################################
+                    fase++;
                     do{ /*BUCLE PARA DECISION DE JUGADOR */
+
                         apuestaJugador =0;
 
                         System.out.println();
@@ -190,6 +191,9 @@ public class Main2 {
                     do{ /*BUCLE PARA DECISION DE JUGADOR*/
                         fase++;
                         apuestaJugador =0;
+                        maquina.addCartaToManoMesa(mesa.getCartaFase(1));
+                        maquina.addCartaToManoMesa(mesa.getCartaFase(2));
+                        maquina.addCartaToManoMesa(mesa.getCartaFase(3));
 
                         System.out.println();
                         System.out.println("*******************************************");
@@ -306,6 +310,7 @@ public class Main2 {
                     do{ /*BUCLE PARA DECISION DE JUGADOR*/
                         fase++;
                         apuestaJugador =0;
+                        maquina.addCartaToManoMesa(mesa.getCartaFase(4));
 
                         System.out.println();
                         System.out.println("*******************************************");
@@ -422,6 +427,7 @@ public class Main2 {
                     do{ /*BUCLE PARA DECISION DE JUGADOR*/
                         fase++;
                         apuestaJugador =0;
+                        maquina.addCartaToManoMesa(mesa.getCartaFase(5));
 
                         System.out.println();
                         System.out.println("*******************************************");
@@ -538,6 +544,14 @@ public class Main2 {
                     {
                         acabada = true;
                     }
+
+                    else{
+
+                    }
+                    jugador.cleanMano();
+                    maquina.cleanMano();
+                    mesa.cleanMano();
+                    mesa.limpiarDineroMesa();
                 }
                 while(fase>=4||abandona);
 
@@ -645,7 +659,7 @@ public class Main2 {
                     }
                     if(apuestaMaquina<apuestaJugador) /*JUGADOR sube la apuesta*/ {
                         {
-                            apuestaMaquina=maquina.igualarSubida(apuestaJugador,apuestaMaquina);
+                            apuestaMaquina = maquina.obtenerCalidadMano(fase,mesa.getDinero());
                             mesa.añadirDineroApuestas(apuestaMaquina);
                             System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaMaquina + " ]");
                         }
@@ -655,6 +669,10 @@ public class Main2 {
                 //############ FLOP DE MAQUINA FASE 2 #########################################################################################################################################################################################################
                 fase++;
                 apuestaJugador =0;
+                maquina.addCartaToManoMesa(mesa.getCartaFase(1));
+                maquina.addCartaToManoMesa(mesa.getCartaFase(2));
+                maquina.addCartaToManoMesa(mesa.getCartaFase(3));
+
 
                 System.out.println();
                 System.out.println("*******************************************");
@@ -749,7 +767,7 @@ public class Main2 {
                 }
                 if(apuestaMaquina<apuestaJugador) /*JUGADOR sube la apuesta*/ {
                     {
-                        apuestaMaquina=maquina.igualarSubida(apuestaJugador,apuestaMaquina);
+                        apuestaMaquina = maquina.obtenerCalidadMano(fase,mesa.getDinero());
                         mesa.añadirDineroApuestas(apuestaMaquina);
                         System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaMaquina + " ]");
 
@@ -759,6 +777,7 @@ public class Main2 {
                 //############ TURN DE MAQUINA FASE 3 #########################################################################################################################################################################################################
                 fase++;
                 apuestaJugador =0;
+                maquina.addCartaToManoMesa(mesa.getCartaFase(4));
 
                 System.out.println();
                 System.out.println("*******************************************");
@@ -853,7 +872,7 @@ public class Main2 {
                 }
                 if(apuestaMaquina<apuestaJugador) /*JUGADOR sube la apuesta*/ {
                     {
-                        apuestaMaquina=maquina.igualarSubida(apuestaJugador,apuestaMaquina);
+                        apuestaMaquina = maquina.obtenerCalidadMano(fase,mesa.getDinero());
                         mesa.añadirDineroApuestas(apuestaMaquina);
                         System.out.println("Tu contrincante ha igualado tu apuesta --> [ " + apuestaMaquina + " ]");
 
@@ -863,6 +882,7 @@ public class Main2 {
                 //############ RIVER DE MAQUINA FASE 4 #########################################################################################################################################################################################################
                 fase++;
                 apuestaJugador =0;
+                maquina.addCartaToManoMesa(mesa.getCartaFase(5));
 
                 System.out.println();
                 System.out.println("*******************************************");
@@ -957,13 +977,17 @@ public class Main2 {
                 }
                 if(apuestaMaquina<apuestaJugador) /*JUGADOR sube la apuesta*/ {
                     {
-                        apuestaMaquina=maquina.igualarSubida(apuestaJugador,apuestaMaquina);
+                        apuestaMaquina = maquina.obtenerCalidadMano(fase,mesa.getDinero());
                         mesa.añadirDineroApuestas(apuestaMaquina);
                         System.out.println("Tu contrincante ha igualado tu apuesta --> [ " + apuestaMaquina + " ]");
 
                     }
                 }
 
+                jugador.cleanMano();
+                maquina.cleanMano();
+                mesa.cleanMano();
+                mesa.limpiarDineroMesa();
             }
 
 

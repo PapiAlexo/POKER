@@ -18,6 +18,7 @@ public class Mesa {
     public void imprimirMano(int fase) {
         if(fase==1)
         {
+            System.out.println();
             System.out.println("No se puede mostrar ya que es la CIEGA. No hay cartas aun en al mesa.");
         }
         if(fase==2) { // muestra tres cartas
@@ -38,6 +39,15 @@ public class Mesa {
                 cartaActual.imprimir();
             }
         }
+    }
+
+    /**
+     * Metodo para meter una por una las cartas de la mesa en la maquina
+     * @param cartaDesada
+     * @return
+     */
+    public Carta getCartaFase (int cartaDesada) {
+        return mano.get(cartaDesada-1);
     }
 
     /**

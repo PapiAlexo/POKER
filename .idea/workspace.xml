@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Añade maquina y mano correguidos por Nacho">
+    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Main2 --&gt; terminado acciones de participantes&#10;Carta --&gt; modificado para ver figuras&#10;Maquina --&gt; hecho un metodo igualar subida + set dinero&#10;Mesa --&gt; modificado sin existo el Imprmir mano">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_04_2024_13_27_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_04_2024_13_27__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Carta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Carta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maquina.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Mesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mesa.java" afterDir="false" />
@@ -42,15 +42,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Acer i5/Desktop/IntelliJ-WD/PokerMaquina",
-    "onboarding.tips.debug.path": "C:/Users/Alex/IdeaProjects/Proyecto Poker/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer i5/Desktop/IntelliJ-WD/PokerMaquina&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Alex/IdeaProjects/Proyecto Poker/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main2">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -98,13 +98,22 @@
       <option name="project" value="LOCAL" />
       <updated>1714898235663</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Main2 --&gt; terminado acciones de participantes&#10;Carta --&gt; modificado para ver figuras&#10;Maquina --&gt; hecho un metodo igualar subida + set dinero&#10;Mesa --&gt; modificado sin existo el Imprmir mano">
+      <option name="closed" value="true" />
+      <created>1714905141148</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714905141148</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Añade maquina y mano correguidos" />
     <MESSAGE value="Añade maquina y mano correguidos por Nacho" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añade maquina y mano correguidos por Nacho" />
+    <MESSAGE value="Main2 --&gt; terminado acciones de participantes&#10;Carta --&gt; modificado para ver figuras&#10;Maquina --&gt; hecho un metodo igualar subida + set dinero&#10;Mesa --&gt; modificado sin existo el Imprmir mano" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main2 --&gt; terminado acciones de participantes&#10;Carta --&gt; modificado para ver figuras&#10;Maquina --&gt; hecho un metodo igualar subida + set dinero&#10;Mesa --&gt; modificado sin existo el Imprmir mano" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
