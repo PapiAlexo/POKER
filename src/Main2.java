@@ -1,5 +1,7 @@
 import utilidades.Util;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 public class Main2 {
     public static void main(String[] args) {
@@ -9,6 +11,20 @@ public class Main2 {
         Mesa mesa = new Mesa(0);
         Maquina maquina = new Maquina(1000000);
         Jugador jugador = new Jugador(1000000);
+        File archivoJugador = new File("registroJugador.txt");
+        File archivoMaquina = new File("registroMaquina.txt");
+        try {
+            if (!archivoJugador.exists())
+                archivoJugador.createNewFile();
+        }
+        catch(IOException ex) {ex.printStackTrace();}
+        try {
+            if (!archivoMaquina.exists())
+                archivoMaquina.createNewFile();
+        }
+        catch(IOException ex) {ex.printStackTrace();}
+        Registrador registrador = new Registrador(archivoJugador, archivoMaquina);
+
         int turno = Util.getNumber(1, 2); /*Para ver quien empieza primero, 1--> maquina 2--> Jugador*/
         int ronda = 0; /*Nos sirve para contar las rondas que llevamos y cuando tenemos que desplegar el menu espcifico de contestar apuesta par ajugador*/
         int opc = 0; /*Variable de opcion jugador*/
@@ -54,9 +70,9 @@ public class Main2 {
             if (turno%2==0) /*EMPIEZA JUGANDO EL JUGADOR*/
             {
                 do { /*BUCLE PARA LA RONDA*/
+                    fase++;
                     //############ CIEGA DE JUGADOR FASE 1 #########################################################################################################################################################################################################
                     do{ /*BUCLE PARA DECISION DE JUGADOR */
-                        fase++;
                         apuestaJugador =0;
 
                         System.out.println();
