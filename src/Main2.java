@@ -519,6 +519,7 @@ public class Main2 {
 
                             }
                         }
+
                         if (partida.comprobarGanador(jugador, maquina) != 0) {
                             acabada = true;
                         }
@@ -980,7 +981,7 @@ public class Main2 {
                     System.out.println("Error, debes de introducir el numero correcto de la opcion que deseas.");
             }
         }
-        while (!acabada||!salir);
+        while (!acabada && !salir);
     }
 
 }

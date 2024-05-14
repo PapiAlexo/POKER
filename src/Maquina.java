@@ -76,7 +76,6 @@ public class Maquina {
 
     /**
      * Metodo para apostar en las dos primeras rondas
-     *
      * @param numFase fase en la que esta la aprtida
      * @param apuesta la puesta que hay en la mesa
      * @return numero de la apuesta
@@ -91,7 +90,7 @@ public class Maquina {
             if (manoMesa.size() != 5) {
                 int[] valorApuesta = ManoIncompleta.valorManoSinMesaCompleta(mano, manoMesa);
                 int dineroApostar = apostar(valorApuesta);
-                if (dineroApostar < apuesta) {
+                if (dineroApostar < apuesta) { //iguala la apuesta del jugador
                     dinero -= apuesta;
                     return apuesta;
                 }
