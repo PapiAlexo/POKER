@@ -11,7 +11,7 @@ public class Partida {
     public Partida() {
         baraja = new ArrayList<Carta>();
     }
-    public void gerenerarBaraja()
+    public void generarBaraja()
     {
 
         /*BANDERAS PARA VER SI SE HA COMPLETADO UN PALO CON SUS 13 CARTAS*/
@@ -31,7 +31,6 @@ public class Partida {
             else {
                 for (int i=0; i<baraja.size();i++)  // Comprobamos si existe la carta
                 {
-
                     Carta cartaActual = baraja.get(i);
                     if(cartaActual.getNumero()==numCart && cartaActual.getPalo()==obtenerPalo(numPalo))
                     {
@@ -43,7 +42,6 @@ public class Partida {
                     baraja.add(new Carta(numCart,obtenerPalo(numPalo)));
                 }
             }
-
         } while(baraja.size()!=52); // mientras que la baraja no este llena
     }
 
@@ -63,7 +61,6 @@ public class Partida {
                 return Palo.TREBOL;
             case 4:
                 return Palo.DIAMANTES;
-
         }
         return null;
     }
@@ -96,7 +93,7 @@ public class Partida {
                 baraja.remove(0);
             }
         }
-        gerenerarBaraja();
+        generarBaraja();
         /*CARTAS JUGADOR*/
         jugador.addCarta(repartirCarta());
         jugador.addCarta(repartirCarta());
@@ -110,7 +107,6 @@ public class Partida {
         {
             mesa.addCarta(repartirCarta());
         }
-
     }
 
     /**
@@ -119,13 +115,12 @@ public class Partida {
      * @param saldo
      * @return
      */
-    public boolean compararAllIn(int apuesta, int saldo)
+    public boolean comprobarAllIn(int apuesta, int saldo)
     {
-        if(apuesta>saldo)
+        if(apuesta>=saldo)
         {
             return true;
         }
-
         return false;
     }
 
@@ -138,23 +133,18 @@ public class Partida {
     {
         Carta carta = baraja.get(0);
         baraja.remove(0);
-
         return carta;
     }
     public int comprobarGanador(Jugador jugador, Maquina maquina)
     {
         if (jugador.getDinero() == 0)
         {
-            return 1;
+            return 1; //pierde jugador
         }
         if(maquina.getDinero()== 0)
         {
-            return 2;
+            return 2; //pierde maquina
         }
-        return 0;
+        return 0; //empate
     }
-
-
-
-
 }

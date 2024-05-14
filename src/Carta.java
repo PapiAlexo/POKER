@@ -105,23 +105,23 @@ public class Carta {
         {
             if(numero == 11)
             {
-                System.out.println("J de TREBOL");
+                System.out.println("J de TRÉBOL");
             }
             else if(numero == 12)
             {
-                System.out.println("Q de TREBOL");
+                System.out.println("Q de TRÉBOL");
             }
             else if(numero == 13)
             {
-                System.out.println("K de TREBOL");
+                System.out.println("K de TRÉBOL");
             }
             else if(numero == 1)
             {
-                System.out.println("A de TREBOL");
+                System.out.println("A de TRÉBOL");
             }
             else
             {
-                System.out.println(numero+" de TREBOL");
+                System.out.println(numero+" de TRÉBOL");
             }
             System.out.println("┌─────────────┐");
             if(numero>9)

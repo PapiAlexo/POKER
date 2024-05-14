@@ -2,7 +2,6 @@
 import utilidades.Util;
 
 import java.io.*;
-import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class Maquina {
@@ -21,7 +20,9 @@ public class Maquina {
         manoMesa = new ArrayList<Carta>();
         this.dinero = dinero;
     }
-
+    public String getNombre(){
+        return nombre;
+    }
     public ArrayList<Carta> getMano() {
         return mano;
     }
@@ -42,7 +43,7 @@ public class Maquina {
      *
      * @param carta carta para añadir
      */
-    public void addCartaToManoMesa(Carta carta) {
+    public void addCartaMesaToMano(Carta carta) {
         manoMesa.add(carta);
     }
 
@@ -110,7 +111,7 @@ public class Maquina {
                         FileReader leer = new FileReader(archivoApuesta);
                         BufferedReader lector = new BufferedReader(leer);
                         int dineroApostar = Integer.parseInt(lector.readLine());
-                        dineroApostar = dineroApostar * (Util.getNumber(60, 100) / 100); /*Ponemos el porcentaje par que las apuestas sean mas aleatorias*/
+                        dineroApostar = dineroApostar * (Util.getNumber(60, 100) / 100); /*Ponemos el porcentaje para que las apuestas sean mas aleatorias*/
                         FileWriter escritor = new FileWriter(archivoApuesta);
                         escritor.write(Integer.parseInt(String.valueOf(lector)) - dineroApostar); /*En el archivo actualizamos el dinero maximo que se va a apostar*/
                         escritor.close();

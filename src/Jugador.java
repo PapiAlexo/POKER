@@ -34,61 +34,71 @@ public class Jugador {
     public void menuContinuar()
     {
         System.out.println();
-        System.out.println("MENU OPCIONES");
+        System.out.println("MENÚ OPCIONES");
         System.out.println("===========================================");
         System.out.println("1--> CONTINUAR JUGANDO");
-        System.out.println("2--> FINALIZAR EL JUEGO ");
+        System.out.println("2--> FINALIZAR EL JUEGO");
         System.out.println("===========================================");
-        System.out.println("Introduce el numero de la opcion deseada:");
-
+        System.out.println("Introduce el número de la opción deseada:");
     }
     public void decisionJugador()
     {
         System.out.println();
-        System.out.println("MENU OPCIONES");
+        System.out.println("MENÚ OPCIONES");
         System.out.println("===========================================");
-        System.out.println("1--> VISUALIZAR MI MANO.");
-        System.out.println("2--> VISUALIZAR MESA.");
-        System.out.println("3--> APOSTAR.");
+        System.out.println("1--> VISUALIZAR MI MANO");
+        System.out.println("2--> VISUALIZAR MESA");
+        System.out.println("3--> APOSTAR");
         System.out.println("4--> PASAR");
-        System.out.println("5--> ABANDONAR.");
+        System.out.println("5--> ABANDONAR");
         System.out.println("===========================================");
-        System.out.println("Introduce el numero de la opcion deseada:");
-
-
+        System.out.println("Introduce el número de la opción deseada:");
     }
-    public void contesteaJugador()
+    public void contestaJugador()
     {
         System.out.println();
-        System.out.println("MENU OPCIONES");
+        System.out.println("MENÚ OPCIONES");
         System.out.println("===========================================");
-        System.out.println("1--> VISUALIZAR MI MANO.");
-        System.out.println("2--> VISUALIZAR MESA.");
-        System.out.println("3--> IGUALAR.");
+        System.out.println("1--> VISUALIZAR MI MANO");
+        System.out.println("2--> VISUALIZAR MESA");
+        System.out.println("3--> IGUALAR");
         System.out.println("4--> SUBIR");
-        System.out.println("5--> ABANDONAR.");
+        System.out.println("5--> ABANDONAR");
         System.out.println("===========================================");
-        System.out.println("Introduce el numero de la opcion deseada:");
+        System.out.println("Introduce el número de la opción deseada:");
     }
     public void contestarSubida(){
         System.out.println();
-        System.out.println("MENU OPCIONES");
+        System.out.println("MENÚ OPCIONES");
         System.out.println("===========================================");
         System.out.println("1--> IGUALAR");
-        System.out.println("2--> ABANDONAR.");
+        System.out.println("2--> ABANDONAR");
         System.out.println("===========================================");
-        System.out.println("Introduce el numero de la opcion deseada:");
+        System.out.println("Introduce el número de la opción deseada:");
     }
     public void decirAllIn()
     {
         System.out.println();
-        System.out.println("No tienes saldo suficiente para igualar la apuesta. Estas son tus opciones:");
-        System.out.println("MENU OPCIONES");
+        System.out.println("*** HAS HECHO ALL IN ***");
+        System.out.println();
+        System.out.println("MENÚ OPCIONES");
         System.out.println("===========================================");
         System.out.println("1--> ALL IN");
         System.out.println("2--> ABANDONAR.");
         System.out.println("===========================================");
-        System.out.println("Introduce el numero de la opcion deseada:");
+        System.out.println("Introduce el número de la opción deseada:");
+    }
+    public void responderAllIn()
+    {
+        System.out.println();
+        System.out.println("No tienes saldo suficiente para igualar la apuesta. Estas son tus opciones:");
+        System.out.println();
+        System.out.println("MENÚ OPCIONES");
+        System.out.println("===========================================");
+        System.out.println("1--> ALL IN");
+        System.out.println("2--> ABANDONAR.");
+        System.out.println("===========================================");
+        System.out.println("Introduce el número de la opción deseada:");
     }
 
     public void mostrarCartasDinero(){
@@ -152,5 +162,9 @@ public class Jugador {
 
     public void setDinero(int dinero) {
         this.dinero = dinero;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }

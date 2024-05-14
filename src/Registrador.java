@@ -10,17 +10,17 @@ public class Registrador {
     }
     /**
      * Añade al archivo de registros de partidas un registro de victoria
-     * @param jugadorGanador //Introducimos el jugador que ha ganado
+     * @param nombreGanador //Introducimos el jugador que ha ganado
      * @throws IOException
      */
-    public void registrarPartida(Jugador jugadorGanador) {
+    public void registrarPartida(String nombreGanador) {
         try {
             boolean primeraPasadaMaquina=false; //bandera que sirve para configurar fecha y hora de partidas si ha sido su primera partida
             boolean primeraPasadaJugador=false;
             int contador = 0; //numero de victorias
             String conjuntoLineasMaquina=""; //conjunto de lineas que guardan las fechas y horas
             String conjuntoLineasJugador="";
-            if (jugadorGanador.nombre.equals("Máquina")) { //gana la máquina
+            if (nombreGanador.equals("Máquina")) { //gana la máquina
                 try (BufferedReader reader = new BufferedReader(new FileReader(archivoMaquina))) { //lector de archivo
                     String linea;
                     String segundaLinea;

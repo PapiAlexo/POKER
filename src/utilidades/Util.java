@@ -48,11 +48,11 @@ public class Util {
                 apuesta = teclado.nextInt(); // pasa el string a int si no puede es que hay letras, pasamos al catch
                 if (apuesta < 0)//
                 {
-                    System.out.print("Error, debe ser un numero positivo. ");
+                    System.out.print("Error, debe ser un número positivo. ");
                     lecturaCorrecta = false;
 
                 } else if (apuesta > saldo) {
-                    System.out.print("No puedes apostar mas cantidad que la de tu saldo. ");
+                    System.out.print("No puedes apostar más cantidad que la de tu saldo. ");
                     lecturaCorrecta = false;
 
                 } else // lo lee correcto, salimos del bucle
@@ -62,7 +62,7 @@ public class Util {
             }
             catch (InputMismatchException ime) // muestra el error que ha sucedidio
             {
-                System.out.println("ERROR GRAVE: No has introducido un numero.");
+                System.out.println("ERROR GRAVE: No has introducido un número.");
                 teclado.nextLine();
                 lecturaCorrecta = false;
 
@@ -84,8 +84,8 @@ public class Util {
             }
             catch (InputMismatchException ime) // muestra el error que ha sucedidio
             {
-                System.out.println("ERROR GRAVE: No has introducido un numero.");
-                System.out.println("Vuelve a introducir la opcion que deseas: ");
+                System.out.println("ERROR GRAVE: No has introducido un número.");
+                System.out.println("Vuelve a introducir la opción que deseas: ");
                 teclado.nextLine();
                 lecturaCorrecta = false;
 
