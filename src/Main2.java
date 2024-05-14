@@ -850,18 +850,6 @@ public class Main2 {
             }
             switch (partida.comprobarGanador(jugador, maquina)) {
                 case 0:
-                    switch (partida.quienGana(jugador.getMano(),maquina.getMano(),mesa.getMano())){
-                        case -1:
-                            System.out.println("La ronda la ha ganado el crupier\nHa ganado: "+mesa.getDinero());
-                            maquina.addDinero(mesa.dinero);
-                            break;
-                        case 0:
-                            /*Gestionar el empate*/
-                            break;
-                        case 1:
-                            System.out.println("Has ganado la ronda\n Has ganado: "+mesa.getDinero());
-                            jugador.addDinero(mesa.getDinero());
-                    }
                     System.out.println("*** FIN DE LA RONDA ***");
                     archivoApuesta.delete();
                     jugador.menuContinuar();
@@ -879,8 +867,6 @@ public class Main2 {
                         default: /*Si se equivoca mostrar mensaje de error*/
                             System.out.println("Error, debes introducir el número correcto de la opción que desees");
                     }
-                    break;
-
                 case 1:
                     System.out.println();
                     System.out.println("*** HAS PERDIDO, TU SALDO ES IGUAL A 0 ***");

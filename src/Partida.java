@@ -135,13 +135,6 @@ public class Partida {
         baraja.remove(0);
         return carta;
     }
-
-    /**
-     * Comprueba quein ha ganado la partida
-     * @param jugador jugador
-     * @param maquina maquina
-     * @return 1 Pierde el Jugador      2 Pierde la Maquina
-     */
     public int comprobarGanador(Jugador jugador, Maquina maquina)
     {
         if (jugador.getDinero() == 0)
@@ -153,21 +146,5 @@ public class Partida {
             return 2; //pierde maquina
         }
         return 0; //empate
-    }
-
-    /**
-     * Nos indica quien ha ganado la ronda
-     * @param manoJugador cartas del jugador
-     * @param manoMaquina cartas de la amquina
-     * @param manoMesa cartas de la mesa
-     * @return >0 Si gana el Jugador    <0 Si gana la maquina   0 Si es empate
-     */
-    public int quienGana(ArrayList<Carta> manoJugador,ArrayList<Carta> manoMaquina,ArrayList<Carta> manoMesa){
-        int valorGanador=0;
-        for (int i=0;i<2&&valorGanador==0;i++){
-            if (Mano.deterctarMano(manoJugador,manoMesa)[i]>Mano.deterctarMano(manoMaquina,manoMesa)[i])valorGanador=1;
-            if (Mano.deterctarMano(manoJugador,manoMesa)[i]<Mano.deterctarMano(manoMaquina,manoMesa)[i])valorGanador=-1;
-        }
-        return valorGanador;
     }
 }
