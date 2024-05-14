@@ -19,7 +19,7 @@ public class Mesa {
         if(fase==1)
         {
             System.out.println();
-            System.out.println("No se puede mostrar ya que es la CIEGA. No hay cartas aun en al mesa.");
+            System.out.println("No se pueden mostrar las cartas ya que es la CIEGA. Aún no hay cartas en la mesa");
         }
         if(fase==2) { // muestra tres cartas
             for(int i=0; i<3; i++) {

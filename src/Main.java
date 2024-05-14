@@ -83,7 +83,7 @@ public class Main {
 
                 //############ CONTESTA LA MAQUIINA FASE 1#############
 
-                        if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                        if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                         {
                             jugador.decirAllIn(); // menu de decision de ALL IN
                             opc = Util.leerOpcMenu(teclado,2);
@@ -182,7 +182,7 @@ public class Main {
                     //############ CONTESTA LA MAQUIINA FASE 2 #############
 
 
-                    if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                    if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                     {
                         jugador.decirAllIn(); // menu de decision de ALL IN
                         opc = Util.leerOpcMenu(teclado,2);
@@ -282,7 +282,7 @@ public class Main {
                     //############ CONTESTA LA MAQUIINA FASE 3 #############
 
 
-                    if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                    if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                     {
                         jugador.decirAllIn(); // menu de decision de ALL IN
                         opc = Util.leerOpcMenu(teclado,2);
@@ -382,7 +382,7 @@ public class Main {
                     //############ CONTESTA LA MAQUIINA FASE 4 #############
 
 
-                    if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                    if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                     {
                         jugador.decirAllIn(); // menu de decision de ALL IN
                         opc = Util.leerOpcMenu(teclado,2);
@@ -451,7 +451,7 @@ public class Main {
                 //############ CONTESTA LA JUGADOR FASE 1 #############
 
                 /*Comprobamos si hay All In */
-                if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                 {
                     jugador.decirAllIn(); // menu de decision de ALL IN
                     opc = Util.leerOpcMenu(teclado,2);
@@ -481,7 +481,7 @@ public class Main {
 
                         System.out.println("Tu contrincante ha apostado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
 
-                        jugador.contesteaJugador();/*MOSTRAMOS EL MENU*/
+                        jugador.contestaJugador();/*MOSTRAMOS EL MENU*/
                         opc = Util.leerOpcMenu(teclado, 5);
                         switch (opc) {
                             case 1:
@@ -531,7 +531,7 @@ public class Main {
 
                     //############ CONTESTA LA JUGADOR FASE 2 #############
                 /*Comprobamos si hay All In */
-                if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                 {
                     jugador.decirAllIn(); // menu de decision de ALL IN
                     opc = Util.leerOpcMenu(teclado,2);
@@ -561,7 +561,7 @@ public class Main {
 
                         System.out.println("Tu contrincante ha apostado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
 
-                        jugador.contesteaJugador();/*MOSTRAMOS EL MENU*/
+                        jugador.contestaJugador();/*MOSTRAMOS EL MENU*/
                         opc = Util.leerOpcMenu(teclado, 5);
                         switch (opc) {
                             case 1:
@@ -610,7 +610,7 @@ public class Main {
 
                     //############ CONTESTA LA JUGADOR FASE 3 #############
                 /*Comprobamos si hay All In */
-                if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                 {
                     jugador.decirAllIn(); // menu de decision de ALL IN
                     opc = Util.leerOpcMenu(teclado,2);
@@ -640,7 +640,7 @@ public class Main {
 
                         System.out.println("Tu contrincante ha apostado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
 
-                        jugador.contesteaJugador();/*MOSTRAMOS EL MENU*/
+                        jugador.contestaJugador();/*MOSTRAMOS EL MENU*/
                         opc = Util.leerOpcMenu(teclado, 5);
                         switch (opc) {
                             case 1:
@@ -690,7 +690,7 @@ public class Main {
 
                     //############ CONTESTA LA JUGADOR FASE 4 #############
                 /*Comprobamos si hay All In */
-                if(partida.compararAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
+                if(partida.comprobarAllIn(apuestaMaquina,jugador.getDinero())) // HAY ALL IN
                 {
                     jugador.decirAllIn(); // menu de decision de ALL IN
                     opc = Util.leerOpcMenu(teclado,2);
@@ -720,7 +720,7 @@ public class Main {
 
                         System.out.println("Tu contrincante ha apostado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
 
-                        jugador.contesteaJugador();/*MOSTRAMOS EL MENU*/
+                        jugador.contestaJugador();/*MOSTRAMOS EL MENU*/
                         opc = Util.leerOpcMenu(teclado, 5);
                         switch (opc) {
                             case 1:
