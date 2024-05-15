@@ -131,7 +131,17 @@ public class Maquina {
             }
         }
     }
-
+    public void mostrarCartasDinero(){
+        System.out.println();
+        System.out.println("===========================================");
+        System.out.println("CARTAS DEL CRUPIER:");
+        for(int i = 0; i< mano.size();i++)
+        {
+            Carta cartaActual = mano.get(i);
+            cartaActual.imprimir();
+        }
+        System.out.println("DINERO ACTUAL DEL CRUPIER--> "+ getDinero());
+    }
     private int apostar(int[] puntajeMano) {
         int apuesta = 0;
         switch (puntajeMano[0]) {

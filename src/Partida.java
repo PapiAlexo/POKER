@@ -135,6 +135,22 @@ public class Partida {
         baraja.remove(0);
         return carta;
     }
+
+    /**
+     * Metodo que nos dice quein gana la ronda
+     * @param manoJugador cartas del jugador
+     * @param manoMaquina cartas del jugador
+     * @param manoMesa cartas del jugador
+     * @return  >0 Si gana el jugador   <0 SI gana la maquina       0 SI es empate
+     */
+    public int quienGanaRonda(ArrayList<Carta>manoJugador,ArrayList<Carta>manoMaquina,ArrayList<Carta>manoMesa){
+        int valor=0; /*Recpge quien ha ganado*/
+        for (int i=0;i<2&&valor==0;i++){/*El for lo utilizamos por si tienen la msima mano comparar quein tiene las cartas mas altas*/
+            if (Mano.deterctarMano(manoJugador,manoMesa)[i]>Mano.deterctarMano(manoMaquina,manoMesa)[i])valor=1;
+            if (Mano.deterctarMano(manoJugador,manoMesa)[i]<Mano.deterctarMano(manoMaquina,manoMesa)[i])valor=-1;
+        }
+        return valor;
+    }
     public int comprobarGanador(Jugador jugador, Maquina maquina)
     {
         if (jugador.getDinero() == 0)

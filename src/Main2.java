@@ -26,7 +26,7 @@ public class Main2 {
         catch(IOException ex) {ex.printStackTrace();}
         Registrador registrador = new Registrador(archivoJugador, archivoMaquina);
 
-        int turno = Util.getNumber(1, 2); /*Para ver quien empieza primero, 1--> maquina 2--> Jugador*/
+        int turno = Util.getNumber(0, 1); /*Para ver quien empieza primero, 0--> maquina 1--> Jugador*/
         int ronda = 0; /*Nos sirve para contar las rondas que llevamos y cuando tenemos que desplegar el menu especifico de contestar apuesta para jugador*/
         int opc = 0; /*Variable de opcion jugador*/
         int apuestaJugador; /*variable para almacenar la apuesta */
@@ -41,8 +41,6 @@ public class Main2 {
         System.out.println("BIENVENIDO/A AL TEXAS HOLDEM");
         System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println("¿ Estás preparado para ganar un gran fortuna ? ");
-
-        turno=1; //temporal para arreglar la parte del jugador
 
         do { /*BUCLE PARA LA PARTIDA */
             /*Lo que hacen es limpiar y preparar los actores de las partidas SOLO SI TIENEN ALGO*/
@@ -848,6 +846,19 @@ public class Main2 {
                 apuestaJugador=jugador.getDinero();
                 mesa.añadirDineroApuestas(apuestaJugador);
             }
+            switch (partida.quienGanaRonda(jugador.getMano(),maquina.getMano(),mesa.getMano())){
+                case (-1):
+                    System.out.println("Ha ganado la ronda el crupier.\nHa ganado: "+mesa.getDinero());
+                    maquina.addDinero(mesa.getDinero());
+                    maquina.mostrarCartasDinero();
+                    break;
+                case 0:
+                    /*Gestionar el empate*/ break;
+                case 1:
+                    System.out.println("Has ganado la ronda.\n Has ganado: "+mesa.getDinero());
+                    jugador.addDinero(mesa.getDinero());
+                    maquina.mostrarCartasDinero();
+            }
             switch (partida.comprobarGanador(jugador, maquina)) {
                 case 0:
                     System.out.println("*** FIN DE LA RONDA ***");
@@ -867,6 +878,7 @@ public class Main2 {
                         default: /*Si se equivoca mostrar mensaje de error*/
                             System.out.println("Error, debes introducir el número correcto de la opción que desees");
                     }
+                    break;
                 case 1:
                     System.out.println();
                     System.out.println("*** HAS PERDIDO, TU SALDO ES IGUAL A 0 ***");
