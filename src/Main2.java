@@ -9,19 +9,14 @@ public class Main2 {
         Scanner teclado = new Scanner(System.in);
         Partida partida = new Partida(); // iniciamos la partida
         Mesa mesa = new Mesa(0);
-        Maquina maquina = new Maquina(10000);
-        Jugador jugador = new Jugador(10000);
+        Maquina maquina = new Maquina(5000);
+        Jugador jugador = new Jugador(5000);
         File archivoJugador = new File("registroJugador.txt");
         File archivoMaquina = new File("registroMaquina.txt");
         File archivoApuesta = new File("archivoApuesta");
         try {
             if (!archivoJugador.exists())
                 archivoJugador.createNewFile();
-        }
-        catch(IOException ex) {ex.printStackTrace();}
-        try {
-            if (!archivoMaquina.exists())
-                archivoMaquina.createNewFile();
         }
         catch(IOException ex) {ex.printStackTrace();}
         Registrador registrador = new Registrador(archivoJugador, archivoMaquina);
@@ -50,7 +45,11 @@ public class Main2 {
             jugador.cleanMano();
             mesa.limpiarDineroMesa();
             mesa.cleanMano();
-
+            try { /*Eñ archivo se debe borrar despues de cada partida*/
+                if (!archivoMaquina.exists())
+                    archivoMaquina.createNewFile();
+            }
+            catch(IOException ex) {ex.printStackTrace();}
             /*Repartimos las cartas para empezar la ronda*/
             partida.inicarRonda(jugador,maquina,mesa);
             int fase = 0 ;/* Variable para ver las fases que hay en cada Ronda, es decir 4.*/
@@ -246,39 +245,66 @@ public class Main2 {
                     if (!abandona && !allInJugador) { //si no abandono se sigue jugando
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
-
-                        if ((apuestaMaquina == apuestaJugador)) {
+                        if ((apuestaMaquina == apuestaJugador)) { /*Maquina iguala */
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
-                        } else {
+                        }
+                        else /*Sube o hace all in la maquina */ {
                             System.out.println();
-                            System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
-                            if(partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())){
+                            if (partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())) { /*Comprobamos si la maquina ha hecho all in*/
                                 System.out.println();
                                 System.out.println("*** TU CONTRINCANTE HA HECHO ALL IN ***");
-                                allInMaquina=true;
-                            }
-                            jugador.contestarSubida(); /* MUESTRA MENU PARA CONTESTAR SUBIDA */
-                            opc = teclado.nextInt();
-                            switch (opc) {
-                                case 1:
-                                    System.out.println("Has selecionado IGUALAR");
-                                    System.out.println("-------------------------------------------");
-                                    if(allInMaquina){
-                                        allInJugador=true;
+                                System.out.println();
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                allInMaquina = true;
+                            } else {
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                /*Comprobamos si hay All In */
+                                if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
+                                {
+                                    jugador.responderAllIn(); // menu de decision de ALL IN
+                                    opc = teclado.nextInt();
+                                    switch (opc) {
+                                        case 1:
+                                            System.out.println("Has seleccionado ALL IN");
+                                            System.out.println("-------------------------------------------");
+                                            apuestaJugador = jugador.getDinero(); /* apuesta todo su dinero*/
+                                            mesa.añadirDineroApuestas(apuestaJugador);/* Ponemos el dinero en la mesa*/
+                                            allInJugador = true;
+                                            break;
+                                        case 2:
+                                            System.out.println("Has selecionado ABANDONAR");
+                                            System.out.println("-------------------------------------------");
+                                            maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
+                                            abandona = true;
+                                            break;
+                                        default: /*Si se equivoca mostrar mensaje de error*/
+                                            System.out.println("Error, debes introducir el número correcto de la opción que desees");
                                     }
-                                    apuestaJugador = jugador.igualarSubida(apuestaJugador, apuestaMaquina);
-                                    /*Como iguala pasamos a la siguiente ronda, dejamos las apuestas en la mesa*/
-                                    mesa.añadirDineroApuestas(apuestaJugador);
-                                    break;
-                                case 2:
-                                    System.out.println("Has selecionado ABANDONAR");
-                                    System.out.println("-------------------------------------------");
-                                    maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
-                                    abandona = true;
-                                    break;
-                                default: /*Si se equivoca mostrar mensaje de error*/
-                                    System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                                } else {
+                                    jugador.contestarSubida(); /* MUESTRA MENU PARA CONTESTAR SUBIDA */
+                                    opc = teclado.nextInt();
+                                    switch (opc) {
+                                        case 1:
+                                            System.out.println("Has selecionado IGUALAR");
+                                            System.out.println("-------------------------------------------");
+                                            if (allInMaquina) {
+                                                allInJugador = true;
+                                            }
+                                            apuestaJugador = jugador.igualarSubida(apuestaJugador, apuestaMaquina);
+                                            /*Como iguala pasamos a la siguiente ronda, dejamos las apuestas en la mesa*/
+                                            mesa.añadirDineroApuestas(apuestaJugador);
+                                            break;
+                                        case 2:
+                                            System.out.println("Has selecionado ABANDONAR");
+                                            System.out.println("-------------------------------------------");
+                                            maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
+                                            abandona = true;
+                                            break;
+                                        default: /*Si se equivoca mostrar mensaje de error*/
+                                            System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                                    }
+                                }
                             }
                         }
                     }
@@ -341,39 +367,66 @@ public class Main2 {
                     if (!abandona && !allInJugador) { //si no abandono se sigue jugando
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
-
-                        if ((apuestaMaquina == apuestaJugador)) {
+                        if ((apuestaMaquina == apuestaJugador)) { /*Maquina iguala */
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
-                        } else {
+                        }
+                        else /*Sube o hace all in la maquina */ {
                             System.out.println();
-                            System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
-                            if(partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())){
+                            if (partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())) { /*Comprobamos si la maquina ha hecho all in*/
                                 System.out.println();
                                 System.out.println("*** TU CONTRINCANTE HA HECHO ALL IN ***");
-                                allInMaquina=true;
-                            }
-                            jugador.contestarSubida(); /* MUESTRA MENU PARA CONTESTAR SUBIDA */
-                            opc = teclado.nextInt();
-                            switch (opc) {
-                                case 1:
-                                    System.out.println("Has selecionado IGUALAR");
-                                    System.out.println("-------------------------------------------");
-                                    if(allInMaquina){
-                                        allInJugador=true;
+                                System.out.println();
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                allInMaquina = true;
+                            } else {
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                /*Comprobamos si hay All In */
+                                if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
+                                {
+                                    jugador.responderAllIn(); // menu de decision de ALL IN
+                                    opc = teclado.nextInt();
+                                    switch (opc) {
+                                        case 1:
+                                            System.out.println("Has seleccionado ALL IN");
+                                            System.out.println("-------------------------------------------");
+                                            apuestaJugador = jugador.getDinero(); /* apuesta todo su dinero*/
+                                            mesa.añadirDineroApuestas(apuestaJugador);/* Ponemos el dinero en la mesa*/
+                                            allInJugador = true;
+                                            break;
+                                        case 2:
+                                            System.out.println("Has selecionado ABANDONAR");
+                                            System.out.println("-------------------------------------------");
+                                            maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
+                                            abandona = true;
+                                            break;
+                                        default: /*Si se equivoca mostrar mensaje de error*/
+                                            System.out.println("Error, debes introducir el número correcto de la opción que desees");
                                     }
-                                    apuestaJugador = jugador.igualarSubida(apuestaJugador, apuestaMaquina);
-                                    /*Como iguala pasamos a la siguiente ronda, dejamos las apuestas en la mesa*/
-                                    mesa.añadirDineroApuestas(apuestaJugador);
-                                    break;
-                                case 2:
-                                    System.out.println("Has selecionado ABANDONAR");
-                                    System.out.println("-------------------------------------------");
-                                    maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
-                                    abandona = true;
-                                    break;
-                                default: /*Si se equivoca mostrar mensaje de error*/
-                                    System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                                } else {
+                                    jugador.contestarSubida(); /* MUESTRA MENU PARA CONTESTAR SUBIDA */
+                                    opc = teclado.nextInt();
+                                    switch (opc) {
+                                        case 1:
+                                            System.out.println("Has selecionado IGUALAR");
+                                            System.out.println("-------------------------------------------");
+                                            if (allInMaquina) {
+                                                allInJugador = true;
+                                            }
+                                            apuestaJugador = jugador.igualarSubida(apuestaJugador, apuestaMaquina);
+                                            /*Como iguala pasamos a la siguiente ronda, dejamos las apuestas en la mesa*/
+                                            mesa.añadirDineroApuestas(apuestaJugador);
+                                            break;
+                                        case 2:
+                                            System.out.println("Has selecionado ABANDONAR");
+                                            System.out.println("-------------------------------------------");
+                                            maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
+                                            abandona = true;
+                                            break;
+                                        default: /*Si se equivoca mostrar mensaje de error*/
+                                            System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                                    }
+                                }
                             }
                         }
                     }
@@ -437,38 +490,66 @@ public class Main2 {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
-                        if ((apuestaMaquina == apuestaJugador)) {
+                        if ((apuestaMaquina == apuestaJugador)) { /*Maquina iguala */
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
-                        } else {
+                        }
+                        else /*Sube o hace all in la maquina */ {
                             System.out.println();
-                            System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
-                            if(partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())){
+                            if (partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())) { /*Comprobamos si la maquina ha hecho all in*/
                                 System.out.println();
                                 System.out.println("*** TU CONTRINCANTE HA HECHO ALL IN ***");
-                                allInMaquina=true;
-                            }
-                            jugador.contestarSubida(); /* MUESTRA MENU PARA CONTESTAR SUBIDA */
-                            opc = teclado.nextInt();
-                            switch (opc) {
-                                case 1:
-                                    System.out.println("Has selecionado IGUALAR");
-                                    System.out.println("-------------------------------------------");
-                                    if(allInMaquina){
-                                        allInJugador=true;
+                                System.out.println();
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                allInMaquina = true;
+                            } else {
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                /*Comprobamos si hay All In */
+                                if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
+                                {
+                                    jugador.responderAllIn(); // menu de decision de ALL IN
+                                    opc = teclado.nextInt();
+                                    switch (opc) {
+                                        case 1:
+                                            System.out.println("Has seleccionado ALL IN");
+                                            System.out.println("-------------------------------------------");
+                                            apuestaJugador = jugador.getDinero(); /* apuesta todo su dinero*/
+                                            mesa.añadirDineroApuestas(apuestaJugador);/* Ponemos el dinero en la mesa*/
+                                            allInJugador = true;
+                                            break;
+                                        case 2:
+                                            System.out.println("Has selecionado ABANDONAR");
+                                            System.out.println("-------------------------------------------");
+                                            maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
+                                            abandona = true;
+                                            break;
+                                        default: /*Si se equivoca mostrar mensaje de error*/
+                                            System.out.println("Error, debes introducir el número correcto de la opción que desees");
                                     }
-                                    apuestaJugador = jugador.igualarSubida(apuestaJugador, apuestaMaquina);
-                                    /*Como iguala pasamos a la siguiente ronda, dejamos las apuestas en la mesa*/
-                                    mesa.añadirDineroApuestas(apuestaJugador);
-                                    break;
-                                case 2:
-                                    System.out.println("Has selecionado ABANDONAR");
-                                    System.out.println("-------------------------------------------");
-                                    maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
-                                    abandona = true;
-                                    break;
-                                default: /*Si se equivoca mostrar mensaje de error*/
-                                    System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                                } else {
+                                    jugador.contestarSubida(); /* MUESTRA MENU PARA CONTESTAR SUBIDA */
+                                    opc = teclado.nextInt();
+                                    switch (opc) {
+                                        case 1:
+                                            System.out.println("Has selecionado IGUALAR");
+                                            System.out.println("-------------------------------------------");
+                                            if (allInMaquina) {
+                                                allInJugador = true;
+                                            }
+                                            apuestaJugador = jugador.igualarSubida(apuestaJugador, apuestaMaquina);
+                                            /*Como iguala pasamos a la siguiente ronda, dejamos las apuestas en la mesa*/
+                                            mesa.añadirDineroApuestas(apuestaJugador);
+                                            break;
+                                        case 2:
+                                            System.out.println("Has selecionado ABANDONAR");
+                                            System.out.println("-------------------------------------------");
+                                            maquina.addDinero(mesa.getDinero()); /* Le damos el dinero de la mesa a la maquina*/
+                                            abandona = true;
+                                            break;
+                                        default: /*Si se equivoca mostrar mensaje de error*/
+                                            System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                                    }
+                                }
                             }
                         }
                     }

@@ -106,7 +106,7 @@ public class Maquina {
                         FileWriter escritor = new FileWriter(archivoApuesta);
                         escritor.write(dineroApostar);/*Escrivimos el dinero maximo que se va a apostar*/
                         escritor.close();
-                        return dineroApostar;
+                        return dineroApostar+apuesta;
                     } else {
                         FileReader leer = new FileReader(archivoApuesta);
                         BufferedReader lector = new BufferedReader(leer);
@@ -134,7 +134,7 @@ public class Maquina {
     public void mostrarCartasDinero(){
         System.out.println();
         System.out.println("===========================================");
-        System.out.println("CARTAS DEL CRUPIER:");
+        System.out.println("CARTAS DEL CONTRINCANTE:");
         for(int i = 0; i< mano.size();i++)
         {
             Carta cartaActual = mano.get(i);
