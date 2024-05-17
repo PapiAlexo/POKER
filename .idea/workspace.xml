@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="">
+    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="121 a 185 se gestiona la apuesta de la maquina comprobando todas las posibilidades">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registroJugador.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registroMaquina.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maquina.java" afterDir="false" />
     </list>
@@ -23,29 +25,32 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Ignacio Pezuela &lt;i.pezuelatrabajo@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2dgJiccXZgkhT3jhm53c7PXH62B" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main2.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/m/IdeaProjects/POKER&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer i5/Desktop/IntelliJ-WD/PokerMaquina&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Alex/IdeaProjects/Proyecto Poker/src/Main.java&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main2">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Proyecto Poker" />
@@ -53,8 +58,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main2" />
+      <module name="Proyecto Poker" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main2" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -68,7 +81,39 @@
       <option name="presentableId" value="Default" />
       <updated>1710423918461</updated>
     </task>
+    <task id="LOCAL-00001" summary="Añade maquina y mano correguidos">
+      <option name="closed" value="true" />
+      <created>1714897451739</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714897451739</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Añade maquina y mano correguidos por Nacho">
+      <option name="closed" value="true" />
+      <created>1714898235663</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714898235663</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Main con bucles modificados y modificados cleans de los jugaadores">
+      <option name="closed" value="true" />
+      <created>1715251375406</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715251375406</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Añade maquina y mano correguidos" />
+    <MESSAGE value="Añade maquina y mano correguidos por Nacho" />
+    <MESSAGE value="Vcio maain" />
+    <MESSAGE value="Main con bucles modificados y modificados cleans de los jugaadores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main con bucles modificados y modificados cleans de los jugaadores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

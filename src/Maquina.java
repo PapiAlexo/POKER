@@ -70,11 +70,6 @@ public class Maquina {
     public void addDinero(int dinero) {
         this.dinero += dinero;
     }
-
-    private void minusDinero(int dinero) {
-        this.dinero -= dinero;
-    }
-
     /**
      * Metodo para apostar en las dos primeras rondas
      * @param numFase fase en la que esta la aprtida
@@ -85,14 +80,14 @@ public class Maquina {
         /*Vamos a utilizar el booleano para dividir el codigo (ciega o resto) */
         if (numFase == 0) {
             int valorApuesta = valorManoCiega(apuesta);
-            minusDinero(valorApuesta);
+            dinero-=valorApuesta;
             return valorApuesta;
         } else {
             if (manoMesa.size() != 5) {
                 int[] valorApuesta = ManoIncompleta.valorManoSinMesaCompleta(mano, manoMesa);
                 int dineroApostar = apostar(valorApuesta);
                 if (dineroApostar < apuesta) { //iguala la apuesta del jugador
-                    dinero -= apuesta;
+                    dinero -= Math.abs(dineroApostar-apuesta);
                     return apuesta;
                 }
                 dinero -= dineroApostar;
@@ -104,8 +99,9 @@ public class Maquina {
                         int[] valorApuesta = Mano.deterctarMano(mano, manoMesa);
                         int dineroApostar = apostar(valorApuesta);
                         FileWriter escritor = new FileWriter(archivoApuesta);
-                        escritor.write(dineroApostar);/*Escrivimos el dinero maximo que se va a apostar*/
+                        escritor.write(dineroApostar);/*Escribimos el dinero maximo que se va a apostar*/
                         escritor.close();
+                        dinero-=dineroApostar;
                         return dineroApostar+apuesta;
                     } else {
                         FileReader leer = new FileReader(archivoApuesta);
@@ -116,7 +112,8 @@ public class Maquina {
                         escritor.write(Integer.parseInt(String.valueOf(lector)) - dineroApostar); /*En el archivo actualizamos el dinero maximo que se va a apostar*/
                         escritor.close();
                         if (dineroApostar < apuesta) {
-                            dineroApostar = apuesta;
+                            dinero -= Math.abs(dineroApostar-apuesta);
+                            return apuesta;
                         }/*Si la apuesta supera el maximo se igualan las cantidades*/
                         if (dineroApostar > dinero) {
                             dineroApostar = dinero;
@@ -140,7 +137,7 @@ public class Maquina {
             Carta cartaActual = mano.get(i);
             cartaActual.imprimir();
         }
-        System.out.println("DINERO ACTUAL DEL CRUPIER--> "+ getDinero());
+        System.out.println("DINERO ACTUAL DEL CONTRINCANTE --> "+ getDinero());
     }
     private int apostar(int[] puntajeMano) {
         int apuesta = 0;
