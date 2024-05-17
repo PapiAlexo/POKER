@@ -104,13 +104,16 @@ public class Jugador {
     public void mostrarCartasDinero(){
         System.out.println();
         System.out.println("===========================================");
-        System.out.println("TUS CARTAS SON LAS SIGUIENTES");
+        System.out.println("TUS CARTAS SON LAS SIGUIENTES:");
+        System.out.println();
         for(int i = 0; i< mano.size();i++)
         {
             Carta cartaActual = mano.get(i);
             cartaActual.imprimir();
         }
+        System.out.println();
         System.out.println("DINERO ACTUAL --> "+ getDinero());
+        System.out.println("-------------------------------------------");
     }
 
     /**

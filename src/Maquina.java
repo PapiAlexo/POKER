@@ -132,11 +132,13 @@ public class Maquina {
         System.out.println();
         System.out.println("===========================================");
         System.out.println("CARTAS DEL CONTRINCANTE:");
+        System.out.println();
         for(int i = 0; i< mano.size();i++)
         {
             Carta cartaActual = mano.get(i);
             cartaActual.imprimir();
         }
+        System.out.println();
         System.out.println("DINERO ACTUAL DEL CONTRINCANTE --> "+ getDinero());
     }
     private int apostar(int[] puntajeMano) {
