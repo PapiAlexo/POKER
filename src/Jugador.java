@@ -76,7 +76,7 @@ public class Jugador {
         System.out.println("===========================================");
         System.out.println("Introduce el número de la opción deseada:");
     }
-    public void contestarAllIndeMaquina()
+    public void contestarAllInDeMaquina()
     {
         System.out.println();
         System.out.println("MENÚ OPCIONES");

@@ -1100,7 +1100,7 @@ public class Main {
                 {
                     do /*BUCLE PARA DECISION DE JUGADOR */
                     {
-                        jugador.contestarAllIndeMaquina();/*MOSTRAMOS EL MENU*/
+                        jugador.contestarAllInDeMaquina();/*MOSTRAMOS EL MENU*/
                         opc = Util.leerOpcMenu(teclado, 4);
                         switch (opc)
                         {
