@@ -1,5 +1,4 @@
 import utilidades.Util;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
@@ -703,7 +702,7 @@ public class Main {
                                 System.out.println("Has selecionado SUBIR");
                                 System.out.println("-------------------------------------------");
                                 int dineroAntiguo = jugador.getDinero();
-                                apuestaJugador = jugador.apostar(teclado); /*Al ser la primera ronda no hay opcion a realizar All IN*/
+                                apuestaJugador = jugador.subirApuesta(teclado,apuestaMaquina); /*Al ser la primera ronda no hay opcion a realizar All IN*/
                                 mesa.añadirDineroApuestas(apuestaJugador); /*Ponemos en la mesa la apuesta del jugador*/
                                 if (partida.comprobarAllIn(apuestaJugador, dineroAntiguo)) // HAY ALL IN
                                 {
@@ -767,7 +766,7 @@ public class Main {
                     /*Comprobamos si hay All In */
                     if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
                     {
-                        jugador.decirAllIn(); // menu de decision de ALL IN
+                        jugador.responderAllIn(); // menu de decision de ALL IN
                         opc = teclado.nextInt();
                         switch (opc)
                         {
@@ -815,7 +814,7 @@ public class Main {
                                     System.out.println("Has selecionado SUBIR");
                                     System.out.println("-------------------------------------------");
                                     int dineroAntiguo = jugador.getDinero();
-                                    apuestaJugador = jugador.apostar(teclado); /*Al ser la primera ronda no hay opcion a realizar All IN*/
+                                    apuestaJugador = jugador.subirApuesta(teclado,apuestaMaquina); /*Al ser la primera ronda no hay opcion a realizar All IN*/
                                     mesa.añadirDineroApuestas(apuestaJugador); /*Ponemos en la mesa la apuesta del jugador*/
                                     if (partida.comprobarAllIn(apuestaJugador, dineroAntiguo)) // HAY ALL IN
                                     {
@@ -877,7 +876,7 @@ public class Main {
                         /*Comprobamos si hay All In */
                         if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
                         {
-                            jugador.decirAllIn(); // menu de decision de ALL IN
+                            jugador.responderAllIn(); // menu de decision de ALL IN
                             opc = teclado.nextInt();
                             switch (opc)
                             {
@@ -925,7 +924,7 @@ public class Main {
                                         System.out.println("Has selecionado SUBIR");
                                         System.out.println("-------------------------------------------");
                                         int dineroAntiguo = jugador.getDinero();
-                                        apuestaJugador = jugador.apostar(teclado); /*Al ser la primera ronda no hay opcion a realizar All IN*/
+                                        apuestaJugador = jugador.subirApuesta(teclado,apuestaMaquina); /*Al ser la primera ronda no hay opcion a realizar All IN*/
                                         mesa.añadirDineroApuestas(apuestaJugador); /*Ponemos en la mesa la apuesta del jugador*/
                                         if (partida.comprobarAllIn(apuestaJugador, dineroAntiguo)) // HAY ALL IN
                                         {
@@ -987,7 +986,7 @@ public class Main {
                         /*Comprobamos si hay All In */
                         if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
                         {
-                            jugador.decirAllIn(); // menu de decision de ALL IN
+                            jugador.responderAllIn(); // menu de decision de ALL IN
                             opc = teclado.nextInt();
                             switch (opc)
                             {
@@ -1036,7 +1035,7 @@ public class Main {
                                         System.out.println("Has selecionado SUBIR");
                                         System.out.println("-------------------------------------------");
                                         int dineroAntiguo = jugador.getDinero();
-                                        apuestaJugador = jugador.apostar(teclado); /*Al ser la primera ronda no hay opcion a realizar All IN*/
+                                        apuestaJugador = jugador.subirApuesta(teclado,apuestaMaquina); /*Al ser la primera ronda no hay opcion a realizar All IN*/
                                         mesa.añadirDineroApuestas(apuestaJugador); /*Ponemos en la mesa la apuesta del jugador*/
                                         if (partida.comprobarAllIn(apuestaJugador, dineroAntiguo)) // HAY ALL IN
                                         {
@@ -1070,12 +1069,11 @@ public class Main {
             }
             if (allInJugador)
             {
-                if(jugador.getDinero()>=maquina.getDinero()) /*Comprobamos si la maquina tiene que hacer All In  */
+                if(apuestaJugador>=maquina.getDinero()) /*Comprobamos si la maquina tiene que hacer All In  */
                 {
                     apuestaMaquina = maquina.getDinero();
-                    apuestaJugador=jugador.getDinero();
+                    maquina.setDinero(0);
                     mesa.añadirDineroApuestas(apuestaMaquina);
-                    mesa.añadirDineroApuestas(apuestaJugador);
                 }
                 else //el jugador hace all in, pero la maquina tiene mas dinero, por lo que apostara lo que vea conveniente
                 {
@@ -1083,6 +1081,7 @@ public class Main {
                     mesa.añadirDineroApuestas(apuestaJugador);
                     maquina.obtenerCalidadMano(fase,apuestaJugador);
                     mesa.añadirDineroApuestas(apuestaMaquina);
+                    maquina.setDinero(0);
                 }
             }
 
@@ -1094,13 +1093,15 @@ public class Main {
                     apuestaJugador= jugador.getDinero();
                     mesa.añadirDineroApuestas(apuestaMaquina);
                     mesa.añadirDineroApuestas(apuestaJugador);
+                    jugador.setDinero(0);
+                    maquina.setDinero(0);
                 }
-                else //la maquina hace all in, pero el jugador tiene mas dinero, por lo que apostara lo que vea conveniente
+                else //la maquina hace all in, pero el jugador tiene mas dinero, por lo que apostara la misma cantidad
                 {
                     do /*BUCLE PARA DECISION DE JUGADOR */
                     {
-                        jugador.contestaJugador();/*MOSTRAMOS EL MENU*/
-                        opc = Util.leerOpcMenu(teclado, 5);
+                        jugador.contestarAllIndeMaquina();/*MOSTRAMOS EL MENU*/
+                        opc = Util.leerOpcMenu(teclado, 4);
                         switch (opc)
                         {
                             case 1:
@@ -1120,19 +1121,6 @@ public class Main {
                                 mesa.añadirDineroApuestas(apuestaJugador);/* Ponemos el dinero en la mesa*/
                                 break;
                             case 4:
-                                System.out.println("Has selecionado SUBIR");
-                                System.out.println("-------------------------------------------");
-                                int dineroAntiguo = jugador.getDinero();
-                                apuestaJugador = jugador.apostar(teclado); /*Al ser la primera ronda no hay opcion a realizar All IN*/
-                                mesa.añadirDineroApuestas(apuestaJugador); /*Ponemos en la mesa la apuesta del jugador*/
-                                if (partida.comprobarAllIn(apuestaJugador, dineroAntiguo)) // HAY ALL IN
-                                {
-                                    System.out.println();
-                                    System.out.println("*** HAS HECHO ALL IN ***");
-                                    allInJugador = true;
-                                }
-                                break;
-                            case 5:
                                 System.out.println("Has selecionado ABANDONAR");
                                 System.out.println("-------------------------------------------");
                                 /*No pasamos dinero a la maquina porque al ser la primera fase no ha llegado a postar*/
@@ -1188,21 +1176,26 @@ public class Main {
                     System.out.println("===========================");
                     archivoApuesta.delete();
                     jugador.menuContinuar();
-                    opc = teclado.nextInt();
-                    switch (opc)
+                    do
                     {
-                        case 1:
-                            System.out.println("CONTINUAMOS");
-                            System.out.println("-------------------------------------------");
-                            break;
-                        case 2:
-                            System.out.println("Has seleccionado FINALIZAR");
-                            System.out.println("-------------------------------------------");
-                            salir = true;
-                            break;
-                        default: /*Si se equivoca mostrar mensaje de error*/
-                            System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                       opc = Util.leerOpcMenu(teclado,2);
+                        switch (opc)
+                        {
+                            case 1:
+                                System.out.println("CONTINUAMOS");
+                                System.out.println("-------------------------------------------");
+                                break;
+                            case 2:
+                                System.out.println("Has seleccionado FINALIZAR");
+                                System.out.println("-------------------------------------------");
+                                salir = true;
+                                break;
+                            default: /*Si se equivoca mostrar mensaje de error*/
+                                System.out.println("Error, debes introducir el número correcto de la opción que desees");
+                        }
                     }
+                    while (opc<1||opc>2);
+
                     break;
                 case 1:
                     System.out.println();

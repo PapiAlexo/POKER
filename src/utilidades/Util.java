@@ -52,7 +52,7 @@ public class Util {
                     lecturaCorrecta = false;
 
                 } else if (apuesta > saldo) {
-                    System.out.print("No puedes apostar más cantidad que la de tu saldo. ");
+                    System.out.print("No puedes apostar más cantidad que la de tu saldo, que es [ "+saldo+" ]");
                     lecturaCorrecta = false;
 
                 } else // lo lee correcto, salimos del bucle
@@ -68,7 +68,7 @@ public class Util {
 
             }
         }
-        while (!lecturaCorrecta); // no sale hasta que intruzca un numero
+        while (!lecturaCorrecta); // no sale hasta que intruzca un numero correcto
 
         return apuesta;
     }

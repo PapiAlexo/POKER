@@ -76,18 +76,19 @@ public class Jugador {
         System.out.println("===========================================");
         System.out.println("Introduce el número de la opción deseada:");
     }
-    public void decirAllIn()
+    public void contestarAllIndeMaquina()
     {
-        System.out.println();
-        System.out.println("*** HAS HECHO ALL IN ***");
         System.out.println();
         System.out.println("MENÚ OPCIONES");
         System.out.println("===========================================");
-        System.out.println("1--> ALL IN");
-        System.out.println("2--> ABANDONAR.");
+        System.out.println("1--> VISUALIZAR MI MANO");
+        System.out.println("2--> VISUALIZAR MESA");
+        System.out.println("3--> IGUALAR");
+        System.out.println("4--> ABANDONAR");
         System.out.println("===========================================");
         System.out.println("Introduce el número de la opción deseada:");
     }
+
     public void responderAllIn()
     {
         System.out.println();
@@ -124,6 +125,26 @@ public class Jugador {
     public int apostar(Scanner teclado)
     {
         int apuesta = Util.leerCantidad( teclado,getDinero());
+        setDinero(getDinero()-apuesta); /*Restamos la cantidad apostada*/
+        return apuesta;
+    }
+    public int subirApuesta(Scanner teclado, int apuestaMaquina)
+    {
+        int apuesta;
+        boolean error;
+        do
+        {
+            error = false;
+            apuesta = Util.leerCantidad( teclado,getDinero());
+            if(apuesta<=apuestaMaquina)
+            {
+                System.out.println("Debes introducir una cantidad superior a la del contrincacnte que es [ "+apuestaMaquina+" ]\n");
+                error=true;
+            }
+
+
+        }
+        while(error);
         setDinero(getDinero()-apuesta); /*Restamos la cantidad apostada*/
         return apuesta;
     }
