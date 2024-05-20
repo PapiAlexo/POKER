@@ -46,7 +46,7 @@ public class Util {
             try
             {
                 apuesta = teclado.nextInt(); // pasa el string a int si no puede es que hay letras, pasamos al catch
-                if (apuesta < 0)//
+                if (apuesta <= 0)//
                 {
                     System.out.print("Error, debe ser un número positivo. ");
                     lecturaCorrecta = false;

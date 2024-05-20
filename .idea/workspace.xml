@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="121 a 185 se gestiona la apuesta de la maquina comprobando todas las posibilidades">
+    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Programa Main finalizado falta estetica">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registroJugador.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registroMaquina.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maquina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Jugador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Jugador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Main2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mano.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Mano.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/ManoIncompleta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/ManoIncompleta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mesa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Mesa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/utilidades/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/utilidades/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilidades/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilidades/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +58,7 @@
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Alex/IdeaProjects/Proyecto Poker/src/Main.java&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main2">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Proyecto Poker" />
@@ -58,16 +66,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main2" />
-      <module name="Proyecto Poker" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main2" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -105,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715251375406</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Programa Main finalizado falta estetica">
+      <option name="closed" value="true" />
+      <created>1715942471197</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715942471197</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -113,7 +121,8 @@
     <MESSAGE value="Añade maquina y mano correguidos por Nacho" />
     <MESSAGE value="Vcio maain" />
     <MESSAGE value="Main con bucles modificados y modificados cleans de los jugaadores" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main con bucles modificados y modificados cleans de los jugaadores" />
+    <MESSAGE value="Programa Main finalizado falta estetica" />
+    <option name="LAST_COMMIT_MESSAGE" value="Programa Main finalizado falta estetica" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
