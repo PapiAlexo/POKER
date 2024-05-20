@@ -129,10 +129,10 @@ public class Main2 {
                     apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                     mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
-                    if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                    if ((apuestaMaquina < apuestaJugador)) /*Maquina iguala */
                     {
                         System.out.println();
-                        System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                        System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaJugador + " ]");
                     }
                     else /*Sube o hace all in la maquina */
                     {
@@ -267,10 +267,10 @@ public class Main2 {
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
-                        if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                        if ((apuestaMaquina < apuestaJugador)) /*Maquina iguala */
                         {
                             System.out.println();
-                            System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                            System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaJugador + " ]");
                         }
                         else /*Sube o hace all in la maquina */
                         {
@@ -405,10 +405,10 @@ public class Main2 {
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
-                        if ((apuestaMaquina == apuestaJugador))
+                        if ((apuestaMaquina < apuestaJugador))
                         { /*Maquina iguala */
                             System.out.println();
-                            System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                            System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaJugador + " ]");
                         }
                         else /*Sube o hace all in la maquina */
                         {
@@ -544,10 +544,10 @@ public class Main2 {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
-                        if ((apuestaMaquina == apuestaJugador))
+                        if ((apuestaMaquina < apuestaJugador))
                         { /*Maquina iguala */
                             System.out.println();
-                            System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                            System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaJugador + " ]");
                         }
                         else /*Sube o hace all in la maquina */
                         {
@@ -619,7 +619,6 @@ public class Main2 {
                     }
                 }
             }
-
             else  /* RONDA CUANDO EMPIEZA LA MAQUINA*/
             {
                 System.out.println();
@@ -727,9 +726,9 @@ public class Main2 {
                     if (apuestaJugador > apuestaMaquina && !allInJugador)
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
-                        mesa.añadirDineroApuestas(apuestaMaquina);
+                        mesa.añadirDineroApuestas(apuestaJugador);
                         System.out.println();
-                        System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaMaquina + " ]");
+                        System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaJugador + " ]");
                     }
                 }
 
@@ -840,9 +839,9 @@ public class Main2 {
                     if (apuestaJugador > apuestaMaquina && !allInJugador)
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
-                        mesa.añadirDineroApuestas(apuestaMaquina);
+                        mesa.añadirDineroApuestas(apuestaJugador);
                         System.out.println();
-                        System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaMaquina + " ]");
+                        System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaJugador + " ]");
                     }
 
                     //############ TURN DE MAQUINA FASE 3 #########################################################################################################################################################################################################
@@ -950,9 +949,9 @@ public class Main2 {
                         if (apuestaJugador > apuestaMaquina && !allInJugador)
                         {
                             apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
-                            mesa.añadirDineroApuestas(apuestaMaquina);
+                            mesa.añadirDineroApuestas(apuestaJugador);
                             System.out.println();
-                            System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaMaquina + " ]");
+                            System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaJugador + " ]");
                         }
                     }
 
@@ -1061,9 +1060,9 @@ public class Main2 {
                         if (apuestaJugador > apuestaMaquina && !allInJugador)
                         {
                             apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
-                            mesa.añadirDineroApuestas(apuestaMaquina);
+                            mesa.añadirDineroApuestas(apuestaJugador);
                             System.out.println();
-                            System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaMaquina + " ]");
+                            System.out.println("Tu contrincante iguala tu apuesta --> [ " + apuestaJugador + " ]");
                         }
                     }
                 }

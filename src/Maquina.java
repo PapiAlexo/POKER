@@ -78,7 +78,7 @@ public class Maquina {
      */
     public int obtenerCalidadMano(int numFase, int apuesta) {
         /*Vamos a utilizar el booleano para dividir el codigo (ciega o resto) */
-        if (numFase == 0) {
+        if (numFase == 1) {
             int valorApuesta = valorManoCiega(apuesta);
             dinero-=valorApuesta;
             return valorApuesta;
@@ -88,7 +88,7 @@ public class Maquina {
                 int dineroApostar = apostar(valorApuesta);
                 if (dineroApostar < apuesta) { //iguala la apuesta del jugador
                     dinero -= Math.abs(dineroApostar-apuesta);
-                    return apuesta;
+                    return Math.abs(dineroApostar-apuesta);
                 }
                 dinero -= dineroApostar;
                 return dineroApostar;
@@ -113,7 +113,7 @@ public class Maquina {
                         escritor.close();
                         if (dineroApostar < apuesta) {
                             dinero -= Math.abs(dineroApostar-apuesta);
-                            return apuesta;
+                            return Math.abs(dineroApostar-apuesta);
                         }/*Si la apuesta supera el maximo se igualan las cantidades*/
                         if (dineroApostar > dinero) {
                             dineroApostar = dinero;
