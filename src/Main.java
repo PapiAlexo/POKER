@@ -1073,11 +1073,16 @@ public class Main {
                 if(jugador.getDinero()>=maquina.getDinero()) /*Comprobamos si la maquina tiene que hacer All In  */
                 {
                     apuestaMaquina = maquina.getDinero();
+                    apuestaJugador=jugador.getDinero();
                     mesa.añadirDineroApuestas(apuestaMaquina);
+                    mesa.añadirDineroApuestas(apuestaJugador);
                 }
                 else //el jugador hace all in, pero la maquina tiene mas dinero, por lo que apostara lo que vea conveniente
                 {
+                    apuestaJugador=jugador.getDinero();
+                    mesa.añadirDineroApuestas(apuestaJugador);
                     maquina.obtenerCalidadMano(fase,apuestaJugador);
+                    mesa.añadirDineroApuestas(apuestaMaquina);
                 }
             }
 
@@ -1086,7 +1091,9 @@ public class Main {
                 if(maquina.getDinero()>=jugador.getDinero()) /*Comprobamos si el jugador tiene que hacer All In  */
                 {
                     apuestaMaquina = maquina.getDinero();
+                    apuestaJugador= jugador.getDinero();
                     mesa.añadirDineroApuestas(apuestaMaquina);
+                    mesa.añadirDineroApuestas(apuestaJugador);
                 }
                 else //la maquina hace all in, pero el jugador tiene mas dinero, por lo que apostara lo que vea conveniente
                 {
