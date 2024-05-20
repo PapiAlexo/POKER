@@ -34,9 +34,9 @@ public class Mano {
             valorMano[1]=detectarCartasIguales(mano, manoMesa,3);
             return valorMano;
         }
-        if (detectarDoblePereja(mano, manoMesa)>0){
+        if (detectarDoblePareja(mano, manoMesa)>0){
             valorMano[0]=2;
-            valorMano[1]=detectarDoblePereja(mano, manoMesa);
+            valorMano[1]=detectarDoblePareja(mano, manoMesa);
             return valorMano;
         }
         if (detectarCartasIguales(mano, manoMesa,2)>0){
@@ -188,7 +188,7 @@ public class Mano {
             return (contadorNumeros==cuantoBuscar)?mano.get(contadorVueltas-1).getNumero():0;
         }
     }
-    private static int detectarDoblePereja(ArrayList<Carta> mano,ArrayList<Carta> manoMesa){/*todo dar una vukta 1-3*/
+    private static int detectarDoblePareja(ArrayList<Carta> mano,ArrayList<Carta> manoMesa){/*todo dar una vuelta 1-3*/
         int contadorNumeros;
         if(mano.get(0).getNumero()==mano.get(1).getNumero()&&buscarCartasIgualesEnMesa(mano, manoMesa,2)){
             return mano.get(0).getNumero();

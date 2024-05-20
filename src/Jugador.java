@@ -156,10 +156,6 @@ public class Jugador {
         return mano;
     }
 
-    public void setMano(ArrayList<Carta> mano) {
-        this.mano = mano;
-    }
-
     public int getDinero() {
         return dinero;
     }

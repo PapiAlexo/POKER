@@ -64,19 +64,6 @@ public class Partida {
         }
         return null;
     }
-    public boolean comprobarPaloCompleto(Palo palo)
-    {
-        int cont = 0;
-        for (int j=0; j<baraja.size(); j++)
-        {
-            Carta cartaActual = baraja.get(j);
-            if(palo == cartaActual.getPalo() )
-            {
-                cont++;
-            }
-        }
-        return false;
-    }
 
     /**
      * Metodo para preparar las manos de cartas de los parametros

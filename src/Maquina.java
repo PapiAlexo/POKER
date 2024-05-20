@@ -238,7 +238,4 @@ public class Maquina {
         return dinero;
     }
 
-    public void setDinero(int dinero) {
-        this.dinero = dinero;
-    }
 }

@@ -7,12 +7,6 @@ public class Mesa {
         this.dinero = dinero;
     }
     /**
-     * imprime el dineroa ctual de la mesa
-     */
-    public void imprimirDinero() {
-        System.out.println(dinero);
-    }
-    /**
      * imprime las cartas que hay en la mesa segun la ronda en la que esté
      */
     public void imprimirMano(int fase) {
