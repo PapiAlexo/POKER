@@ -37,7 +37,7 @@ public class Partida {
                         existeCarta = true; // existe
                     }
                 }
-                if (!existeCarta) // si no existe carta, la creamos
+                if (!existeCarta) // si no existe carta, la creamos y add a la baraja
                 {
                     baraja.add(new Carta(numCart,obtenerPalo(numPalo)));
                 }
@@ -124,17 +124,17 @@ public class Partida {
     }
 
     /**
-     * Metodo que nos dice quein gana la ronda
+     * Metodo que nos dice quien gana la ronda
      * @param manoJugador cartas del jugador
      * @param manoMaquina cartas del jugador
      * @param manoMesa cartas del jugador
-     * @return  >0 Si gana el jugador   <0 SI gana la maquina       0 SI es empate
+     * @return  >0 Si gana el jugador.   <0 SI gana la maquina.       0 SI es empate
      */
     public int quienGanaRonda(ArrayList<Carta>manoJugador,ArrayList<Carta>manoMaquina,ArrayList<Carta>manoMesa){
-        int valor=0; /*Recpge quien ha ganado*/
-        for (int i=0;i<2&&valor==0;i++){/*El for lo utilizamos por si tienen la msima mano comparar quein tiene las cartas mas altas*/
-            if (Mano.deterctarMano(manoJugador,manoMesa)[i]>Mano.deterctarMano(manoMaquina,manoMesa)[i])valor=1;
-            if (Mano.deterctarMano(manoJugador,manoMesa)[i]<Mano.deterctarMano(manoMaquina,manoMesa)[i])valor=-1;
+        int valor=0; /*Recoge quien ha ganado*/
+        for (int i=0;i<2&&valor==0;i++){/*El for lo utilizamos por si tienen la misma mano y comparamos quien tiene las cartas mas altas*/
+            if (Mano.detectarMano(manoJugador,manoMesa)[i]>Mano.detectarMano(manoMaquina,manoMesa)[i])valor=1;
+            if (Mano.detectarMano(manoJugador,manoMesa)[i]<Mano.detectarMano(manoMaquina,manoMesa)[i])valor=-1;
         }
         return valor;
     }

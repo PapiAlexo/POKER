@@ -12,7 +12,6 @@ public class Maquina {
 
     /**
      * Constructor para crear la maquina
-     *
      * @param dinero
      */
     public Maquina(int dinero) {
@@ -29,7 +28,6 @@ public class Maquina {
 
     /**
      * Metodo para añadir carta
-     *
      * @param carta carta de la baraja añadir mano maquina
      * @return true: se ha podido añadir
      */
@@ -40,7 +38,6 @@ public class Maquina {
 
     /**
      * Metodo para añadir las cartas de la mesa
-     *
      * @param carta carta para añadir
      */
     public void addCartaMesaToMano(Carta carta) {
@@ -77,13 +74,13 @@ public class Maquina {
      * @return numero de la apuesta
      */
     public int obtenerCalidadMano(int numFase, int apuesta) {
-        /*Vamos a utilizar el booleano para dividir el codigo (ciega o resto) */
+        /*Vamos a utilizar el numfase para dividir el codigo (ciega o resto) */
         if (numFase == 1) {
             int valorApuesta = valorManoCiega(apuesta);
             dinero-=valorApuesta;
             return valorApuesta;
         } else {
-            if (manoMesa.size() != 5) {
+            if (manoMesa.size() != 5) { // mano mesa incompleta de ronda 2-3
                 int[] valorApuesta = ManoIncompleta.valorManoSinMesaCompleta(mano, manoMesa);
                 int dineroApostar = apostar(valorApuesta);
                 if (dineroApostar < apuesta) { //iguala la apuesta del jugador
@@ -92,18 +89,18 @@ public class Maquina {
                 }
                 dinero -= dineroApostar;
                 return dineroApostar;
-            } else {
+            } else { //ronda 4
                 File archivoApuesta = new File("archivoApuesta");
                 try {
-                    if (archivoApuesta.createNewFile()) {
-                        int[] valorApuesta = Mano.deterctarMano(mano, manoMesa);
+                    if (archivoApuesta.createNewFile()) { //si no existe lo crea y devuelve true. Si ya existe devuelve false
+                        int[] valorApuesta = Mano.detectarMano(mano, manoMesa);
                         int dineroApostar = apostar(valorApuesta);
                         FileWriter escritor = new FileWriter(archivoApuesta);
                         escritor.write(dineroApostar);/*Escribimos el dinero maximo que se va a apostar*/
                         escritor.close();
                         dinero-=dineroApostar;
                         return dineroApostar+apuesta;
-                    } else {
+                    } else { // en caso de que la apuesta de la maquina la suba el jugador y tenga que contestar la maquina
                         FileReader leer = new FileReader(archivoApuesta);
                         BufferedReader lector = new BufferedReader(leer);
                         int dineroApostar = Integer.parseInt(lector.readLine());
@@ -145,7 +142,7 @@ public class Maquina {
         int apuesta = 0;
         switch (puntajeMano[0]) {
             case 8:
-                if (puntajeMano[1] >= 10) {/*All in*/
+                if (puntajeMano[1] >= 10) {/*All in al ser la mano mas alta posible*/
                     int dineroApostar = dinero;
                     dinero -= dinero;
                     return dineroApostar;
@@ -201,13 +198,12 @@ public class Maquina {
         return apuesta;
     }
 
-    private int valorManoCiega(int apuesta) {
+    private int valorManoCiega(int apuesta) { //apuesta de ese momento
         CalidadMano calidadMano = CalidadMano.MALA;
 
-        /*Si la mesa no está descubierta apostaremos solo siguiendo nuestra mano (CIEGA)*/
         if (mano.get(0).getPalo() == mano.get(1).getPalo()) {
             //Mismo color
-            /*EN este caso no prejuntaremos por los numeros, ya que nuesro principal objetivo sera ir a por color*/
+            /*EN este caso no preguntaremos por los numeros, ya que nuestro principal objetivo sera ir a por color*/
             calidadMano = CalidadMano.BUENA;
         }
         if (mano.get(0).getPalo() != mano.get(1).getPalo() && mano.get(0).getNumero() != mano.get(1).getNumero()) {
@@ -219,7 +215,7 @@ public class Maquina {
         }
         if (mano.get(0).getNumero() == mano.get(1).getNumero() && (mano.get(0).getNumero() > 11 || mano.get(0).getNumero() == 1)) {
             //Pareja Real
-            /*Como una mano perfecta es ya de porsi alta, pues no vamos a prejuntar*/
+            /*Como una mano perfecta es ya de por si alta, pues no vamos a preguntar*/
             calidadMano = CalidadMano.MUY_BUENA;
         }
         if (calidadMano == CalidadMano.MUY_BUENA && apuesta < 10) {

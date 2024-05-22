@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment=" Programa terminado o no...?" />
+    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment=" Programa terminado,corregido sintaxis o no está terminado...?">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_23_29_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_23_29__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManoIncompleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManoIncompleta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maquina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Registrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Registrador.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +111,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716194778164</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=" Programa terminado,corregido sintaxis o no está terminado...?">
+      <option name="closed" value="true" />
+      <created>1716195106755</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716195106755</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -110,7 +129,8 @@
     <MESSAGE value="Main con bucles modificados y modificados cleans de los jugaadores" />
     <MESSAGE value="El main que sobra eliminado" />
     <MESSAGE value=" Programa terminado o no...?" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Programa terminado o no...?" />
+    <MESSAGE value=" Programa terminado,corregido sintaxis o no está terminado...?" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Programa terminado,corregido sintaxis o no está terminado...?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -121,8 +141,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>1069</line>
+          <line>1076</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

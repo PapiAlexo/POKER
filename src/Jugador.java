@@ -31,6 +31,9 @@ public class Jugador {
         }
     }
 
+    /**
+     * Menu para cuando ya ha jugado una ronda le preguntamos si quiere seguir con el resto de rondas
+     */
     public void menuContinuar()
     {
         System.out.println();
@@ -41,6 +44,10 @@ public class Jugador {
         System.out.println("===========================================");
         System.out.println("Introduce el número de la opción deseada:");
     }
+
+    /**
+     * Menu cuando empieza apostando el jugador
+     */
     public void decisionJugador()
     {
         System.out.println();
@@ -54,6 +61,10 @@ public class Jugador {
         System.out.println("===========================================");
         System.out.println("Introduce el número de la opción deseada:");
     }
+
+    /**
+     MENU CUANDO EMPIEZA LA MAQUINA APOSTANDO Y DEBE CONTERSTAR EL JUGADOR
+     */
     public void contestaJugador()
     {
         System.out.println();
@@ -67,6 +78,11 @@ public class Jugador {
         System.out.println("===========================================");
         System.out.println("Introduce el número de la opción deseada:");
     }
+
+    /**
+     * La maquina ha subido la apuesta
+     */
+
     public void contestarSubida(){
         System.out.println();
         System.out.println("MENÚ OPCIONES");
@@ -76,6 +92,10 @@ public class Jugador {
         System.out.println("===========================================");
         System.out.println("Introduce el número de la opción deseada:");
     }
+
+    /**
+     * Contestamos all in maquina pero nuestro saldo es mayor que ese all in
+     */
     public void contestarAllInDeMaquina()
     {
         System.out.println();
@@ -89,6 +109,9 @@ public class Jugador {
         System.out.println("Introduce el número de la opción deseada:");
     }
 
+    /**
+     * Nos hace all in la maquina y nosotros no tenemos saldo suficiente para igualarlo --- OBLIGADO A HACER ALL IN
+     */
     public void responderAllIn()
     {
         System.out.println();
@@ -138,11 +161,9 @@ public class Jugador {
             apuesta = Util.leerCantidad( teclado,getDinero());
             if(apuesta<=apuestaMaquina)
             {
-                System.out.println("Debes introducir una cantidad superior a la del contrincacnte que es [ "+apuestaMaquina+" ]\n");
+                System.out.println("Debes introducir una cantidad superior a la del contrincante, que es [ "+apuestaMaquina+" ]\n");
                 error=true;
             }
-
-
         }
         while(error);
         setDinero(getDinero()-apuesta); /*Restamos la cantidad apostada*/
@@ -159,7 +180,7 @@ public class Jugador {
     {
         int igualar = apuestaMaquina - apuestaJugador; /*Calculamos la cantidad que debe igualar*/
         setDinero(getDinero() - igualar); /*Restamos la cantidad*/
-        return apuestaMaquina; /*Ya que es la apuesta que se ha igualado*/
+        return igualar; /*Ya que es la apuesta que se ha igualado*/
     }
 
     /**

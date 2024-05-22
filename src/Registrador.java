@@ -51,6 +51,7 @@ public class Registrador {
                         }
                     }
                 } catch (IOException | NumberFormatException e) {}
+
                 String registro = (contador + 1) + " rondas ganadas, con un porcentaje de " +obtenerPorcentajeVictoriasMaquina()+ "%\n"; //segunda línea que contiene las victorias que lleva y las actualiza + el porcentaje de victorias
                 conjuntoLineasMaquina+=getFechaFormateada()+" a las "+getHoraFormateada(); //añade una nueva fecha y hora de la partida recién terminada
                 if(!primeraPasadaMaquina){ //en caso de que sea el primer registro, no añade ninguna fecha, solo escribe la primera del archivo (solo se usa en el primer registro)

@@ -21,6 +21,13 @@ public class Main {
             }
         }
         catch(IOException ex) {ex.printStackTrace();}
+        try
+        {
+            if (!archivoMaquina.exists())
+            {
+                archivoMaquina.createNewFile();
+            }
+        } catch (IOException ex) {ex.printStackTrace();}
         Registrador registrador = new Registrador(archivoJugador, archivoMaquina);
 
         int turno = Util.getNumber(0, 1); /*Para ver quien empieza primero, 0--> maquina 1--> Jugador*/
@@ -48,13 +55,7 @@ public class Main {
             mesa.limpiarDineroMesa();
             mesa.cleanMano();
 
-            try
-            { /*El archivo se debe borrar después de cada partida*/
-                if (!archivoMaquina.exists())
-                {
-                    archivoMaquina.createNewFile();
-                }
-            } catch (IOException ex) {ex.printStackTrace();}
+
 
             /*Repartimos las cartas para empezar la ronda*/
             partida.inicarRonda(jugador, maquina, mesa);
@@ -128,6 +129,7 @@ public class Main {
                     apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                     mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
+
                     if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
                     {
                         System.out.println();
@@ -146,7 +148,7 @@ public class Main {
                         }
                         else
                         {
-                            System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                            System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + (apuestaMaquina) + " ]");
                             /*Comprobamos si hay All In */
                             if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
                             {
@@ -266,6 +268,8 @@ public class Main {
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
+
+
                         if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
                         {
                             System.out.println();
@@ -274,8 +278,8 @@ public class Main {
                         else /*Sube o hace all in la maquina */
                         {
                             System.out.println();
-                            if (partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())) /*Comprobamos si la maquina ha hecho all in*/
-                            {
+                            if (partida.comprobarAllIn(apuestaMaquina, maquina.getDinero()))
+                            { /*Comprobamos si la maquina ha hecho all in*/
                                 System.out.println();
                                 System.out.println("*** TU CONTRINCANTE HA HECHO ALL IN ***");
                                 System.out.println();
@@ -284,7 +288,7 @@ public class Main {
                             }
                             else
                             {
-                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + (apuestaMaquina) + " ]");
                                 /*Comprobamos si hay All In */
                                 if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
                                 {
@@ -404,8 +408,10 @@ public class Main {
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
-                        if ((apuestaMaquina == apuestaJugador))
-                        { /*Maquina iguala */
+
+
+                        if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                        {
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
                         }
@@ -422,7 +428,7 @@ public class Main {
                             }
                             else
                             {
-                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + (apuestaMaquina) + " ]");
                                 /*Comprobamos si hay All In */
                                 if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
                                 {
@@ -543,16 +549,17 @@ public class Main {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
-                        if ((apuestaMaquina == apuestaJugador))
-                        { /*Maquina iguala */
+
+                        if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                        {
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
                         }
                         else /*Sube o hace all in la maquina */
                         {
                             System.out.println();
-                            if (partida.comprobarAllIn(apuestaMaquina, maquina.getDinero())) /*Comprobamos si la maquina ha hecho all in*/
-                            {
+                            if (partida.comprobarAllIn(apuestaMaquina, maquina.getDinero()))
+                            { /*Comprobamos si la maquina ha hecho all in*/
                                 System.out.println();
                                 System.out.println("*** TU CONTRINCANTE HA HECHO ALL IN ***");
                                 System.out.println();
@@ -561,7 +568,7 @@ public class Main {
                             }
                             else
                             {
-                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + apuestaMaquina + " ]");
+                                System.out.println("Tu contrincante ha subido la apuesta hasta la siguiente cantidad --> [ " + (apuestaMaquina) + " ]");
                                 /*Comprobamos si hay All In */
                                 if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
                                 {
@@ -648,7 +655,7 @@ public class Main {
                     System.out.println("Tu contrincante ha apostado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
                 }
 
-                //############ CONTESTA LA JUGADOR FASE 1 #############
+                //############ CONTESTA EL JUGADOR FASE 1 #############
 
                 /*Comprobamos si hay que hacer All In */
                 if (partida.comprobarAllIn(apuestaMaquina, jugador.getDinero())) // HAY ALL IN
