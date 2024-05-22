@@ -548,7 +548,7 @@ public class Main {
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
-
+                        maquina.setDinero(maquina.getDinero()-apuestaJugador);// No le quita lo ultimo que apuesta el jugador
 
                         if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
                         {

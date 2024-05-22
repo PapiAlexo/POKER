@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment=" Programa terminado,corregido sintaxis o no está terminado...?">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_23_29_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_05_2024_23_29__Changes_.xml" beforeDir="false" />
+    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Intentando arreglar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Jugador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Jugador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mano.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Mano.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/ManoIncompleta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/ManoIncompleta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mesa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Mesa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Registrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Registrador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mano.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ManoIncompleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ManoIncompleta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maquina.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Partida.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Registrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Registrador.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716195106755</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Intentando arreglar">
+      <option name="closed" value="true" />
+      <created>1716381041197</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716381041197</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -130,7 +138,8 @@
     <MESSAGE value="El main que sobra eliminado" />
     <MESSAGE value=" Programa terminado o no...?" />
     <MESSAGE value=" Programa terminado,corregido sintaxis o no está terminado...?" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Programa terminado,corregido sintaxis o no está terminado...?" />
+    <MESSAGE value="Intentando arreglar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Intentando arreglar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
