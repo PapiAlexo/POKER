@@ -238,7 +238,7 @@ public class Main {
                                 System.out.println("Has selecionado APOSTAR");
                                 System.out.println("-------------------------------------------");
                                 int dineroAntiguo = jugador.getDinero();
-                                apuestaJugador = jugador.apostar(teclado); /*Al ser la primera ronda no hay opcion a realizar All IN*/
+                                apuestaJugador = jugador.apostar(teclado);
                                 mesa.añadirDineroApuestas(apuestaJugador); /*Ponemos en la mesa la apuesta del jugador*/
                                 if (partida.comprobarAllIn(apuestaJugador, dineroAntiguo)) // HAY ALL IN
                                 {
@@ -518,7 +518,7 @@ public class Main {
                                 System.out.println("Has selecionado APOSTAR");
                                 System.out.println("-------------------------------------------");
                                 int dineroAntiguo = jugador.getDinero();
-                                apuestaJugador = jugador.apostar(teclado); /*Al ser la primera ronda no hay opcion a realizar All IN*/
+                                apuestaJugador = jugador.apostar(teclado);
                                 mesa.añadirDineroApuestas(apuestaJugador); /*Ponemos en la mesa la apuesta del jugador*/
                                 if (partida.comprobarAllIn(apuestaJugador, dineroAntiguo)) // HAY ALL IN
                                 {
@@ -548,7 +548,6 @@ public class Main {
                     {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
-                        maquina.setDinero(maquina.getDinero()-apuestaJugador);// No le quita lo ultimo que apuesta el jugador
 
                         if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
                         {

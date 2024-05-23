@@ -84,44 +84,20 @@ public class Maquina {
                 int[] valorApuesta = ManoIncompleta.valorManoSinMesaCompleta(mano, manoMesa);
                 int dineroApostar = apostar(valorApuesta);
                 if (dineroApostar < apuesta) { //iguala la apuesta del jugador
-                    dinero -= Math.abs(dineroApostar-apuesta);
-                    return Math.abs(dineroApostar-apuesta);
+                    dinero -= apuesta;
+                    return apuesta;
                 }
                 dinero -= dineroApostar;
                 return dineroApostar;
             } else { //ronda 4
-                File archivoApuesta = new File("archivoApuesta");
-                try {
-                    if (archivoApuesta.createNewFile()) { //si no existe lo crea y devuelve true. Si ya existe devuelve false
-                        int[] valorApuesta = Mano.detectarMano(mano, manoMesa);
-                        int dineroApostar = apostar(valorApuesta);
-                        FileWriter escritor = new FileWriter(archivoApuesta);
-                        escritor.write(dineroApostar);/*Escribimos el dinero maximo que se va a apostar*/
-                        escritor.close();
-                        dinero-=dineroApostar;
-                        return dineroApostar+apuesta;
-                    } else { // en caso de que la apuesta de la maquina la suba el jugador y tenga que contestar la maquina
-                        FileReader leer = new FileReader(archivoApuesta);
-                        BufferedReader lector = new BufferedReader(leer);
-                        int dineroApostar = Integer.parseInt(lector.readLine());
-                        dineroApostar = dineroApostar * (Util.getNumber(60, 100) / 100); /*Ponemos el porcentaje para que las apuestas sean mas aleatorias*/
-                        FileWriter escritor = new FileWriter(archivoApuesta);
-                        escritor.write(Integer.parseInt(String.valueOf(lector)) - dineroApostar); /*En el archivo actualizamos el dinero maximo que se va a apostar*/
-                        escritor.close();
-                        if (dineroApostar < apuesta) {
-                            dinero -= Math.abs(dineroApostar-apuesta);
-                            return Math.abs(dineroApostar-apuesta);
-                        }/*Si la apuesta supera el maximo se igualan las cantidades*/
-                        if (dineroApostar > dinero) {
-                            dineroApostar = dinero;
-                        } /*All in*/
-                        dinero -= dineroApostar;
-                        return dineroApostar;
-                    }
-                } catch (IOException e) {
-                    System.out.println("Problemas con el archivo archivoApuesta.txt");
-                    return -1;
+                int[] valorApuesta = Mano.detectarMano(mano, manoMesa);
+                int dineroApostar = apostar(valorApuesta);
+                if (dineroApostar < apuesta) { //iguala la apuesta del jugador
+                    dinero -= apuesta;
+                    return apuesta;
                 }
+                dinero -= dineroApostar;
+                return dineroApostar;
             }
         }
     }

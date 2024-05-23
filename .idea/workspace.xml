@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Intentando arreglar">
+    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Modificnado el all in para que se sume ambas cantidades">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Jugador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Jugador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mano.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Mano.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/ManoIncompleta.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/ManoIncompleta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mesa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Mesa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Registrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Registrador.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maquina.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,16 +41,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Acer i5/Desktop/IntelliJ-WD/PokerMaquina&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Alex/IdeaProjects/Proyecto Poker/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Acer i5/Desktop/IntelliJ-WD/PokerMaquina",
+    "onboarding.tips.debug.path": "C:/Users/Alex/IdeaProjects/Proyecto Poker/src/Main.java"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -103,31 +99,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715251375406</updated>
     </task>
-    <task id="LOCAL-00004" summary=" Programa terminado o no...?">
+    <task id="LOCAL-00004" summary="Modificnado el all in para que se sume ambas cantidades">
       <option name="closed" value="true" />
-      <created>1716194778164</created>
+      <created>1716191160668</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1716194778164</updated>
+      <updated>1716191160668</updated>
     </task>
-    <task id="LOCAL-00005" summary=" Programa terminado,corregido sintaxis o no está terminado...?">
-      <option name="closed" value="true" />
-      <created>1716195106755</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1716195106755</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Intentando arreglar">
-      <option name="closed" value="true" />
-      <created>1716381041197</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1716381041197</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -135,11 +115,8 @@
     <MESSAGE value="Añade maquina y mano correguidos por Nacho" />
     <MESSAGE value="Vcio maain" />
     <MESSAGE value="Main con bucles modificados y modificados cleans de los jugaadores" />
-    <MESSAGE value="El main que sobra eliminado" />
-    <MESSAGE value=" Programa terminado o no...?" />
-    <MESSAGE value=" Programa terminado,corregido sintaxis o no está terminado...?" />
-    <MESSAGE value="Intentando arreglar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Intentando arreglar" />
+    <MESSAGE value="Modificnado el all in para que se sume ambas cantidades" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificnado el all in para que se sume ambas cantidades" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -150,13 +127,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>1076</line>
-          <option name="timeStamp" value="5" />
+          <line>67</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>67</line>
-          <option name="timeStamp" value="10" />
+          <line>488</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
