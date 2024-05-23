@@ -1,3 +1,5 @@
+package baraja;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -107,7 +109,7 @@ public class Mano {
             return (contadorColor==5)?mano.get(contadorVueltas-1).getNumero():0;
         }
     }
-    private static int cartaAlta(ArrayList<Carta> mano){return Math.max(mano.get(0).getNumero(), mano.get(1).getNumero()); /*Con math sacamos la carta de mayor valor de la mano*/}
+    private static int cartaAlta(ArrayList<Carta> mano){return (mano.get(0).getNumero()==1||mano.get(1).getNumero()==1)?1:Math.max(mano.get(0).getNumero(),mano.get(1).getNumero());/*Con math sacamos la carta de mayor valor de la mano*/}
     private static int detectarEscaleraColor(ArrayList<Carta> mano,ArrayList<Carta> manoMesa){
         int[] cartas = new int[manoMesa.size() + mano.size()]; /*Guardar valores de las cartas de la mano y de la mesa*/
         /*Llenamos la array*/
@@ -136,7 +138,7 @@ public class Mano {
                     cartas[i + 2] == cartas[i]+ 2 &&     /* 5 == 3+2 */
                     cartas[i + 3] == cartas[i] + 3 &&    /* 6 == 3+3 */
                     cartas[i + 4] == cartas[i] + 4) {
-                Palo paloEscalera=Palo.DIAMANTES; /*Creamos una variable que nos guada el palo de la escalera*/
+                Palo paloEscalera= Palo.DIAMANTES; /*Creamos una variable que nos guada el palo de la escalera*/
                 for (int g=i;g<cartas.length;g++){ /*i es la primera carta de la escalera e igualamos a g para poder buscar en la array de cartas*/
                     for (int k = 0; k < mano.size(); k++) { /*Buscamos tanbien en la array de la mano*/
                         if (cartas[g]==mano.get(k).getNumero()){ /*Si los numeros coinciden es que es la misma carta y guardamos en la variable paloEscalera dicho palo*/

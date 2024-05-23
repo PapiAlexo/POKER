@@ -1,7 +1,10 @@
+package integrantes;
 
-import utilidades.Util;
+import baraja.CalidadMano;
+import baraja.Carta;
+import baraja.Mano;
+import baraja.ManoIncompleta;
 
-import java.io.*;
 import java.util.ArrayList;
 
 public class Maquina {
@@ -78,6 +81,10 @@ public class Maquina {
         if (numFase == 1) {
             int valorApuesta = valorManoCiega(apuesta);
             dinero-=valorApuesta;
+            if (valorApuesta < apuesta) { //iguala la apuesta del jugador
+                dinero -= apuesta;
+                return apuesta;
+            }
             return valorApuesta;
         } else {
             if (manoMesa.size() != 5) { // mano mesa incompleta de ronda 2-3
@@ -170,6 +177,15 @@ public class Maquina {
             case 5:
                 apuesta += 50;
                 break;
+            case 4:
+                apuesta+=5;
+                break;
+            case 3:
+                apuesta+=5;
+                break;
+            case 2:
+                apuesta+=5;
+                break;
         }
         return apuesta;
     }
@@ -194,16 +210,16 @@ public class Maquina {
             /*Como una mano perfecta es ya de por si alta, pues no vamos a preguntar*/
             calidadMano = CalidadMano.MUY_BUENA;
         }
-        if (calidadMano == CalidadMano.MUY_BUENA && apuesta < 10) {
+        if (calidadMano == CalidadMano.MUY_BUENA) {
             return 100;
         }
-        if (calidadMano == CalidadMano.BUENA && apuesta < 5) {
+        if (calidadMano == CalidadMano.BUENA) {
             return 50;
         }
-        if (calidadMano == CalidadMano.REGULAR && apuesta < 2) {
+        if (calidadMano == CalidadMano.REGULAR) {
             return 20;
         }
-        return apuesta;
+        return 10;
     }
 
     public int getDinero() {

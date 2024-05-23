@@ -1,3 +1,6 @@
+package integrantes;
+
+import baraja.Carta;
 import utilidades.Util;
 
 import java.util.ArrayList;
@@ -6,7 +9,7 @@ import java.util.Scanner;
 public class Jugador {
     protected ArrayList <Carta> mano;
     protected int dinero;
-    protected String nombre="Jugador";
+    protected String nombre="integrantes.Jugador";
 
     public Jugador( int dinero) {
         this.mano = new ArrayList<Carta>();

@@ -1,3 +1,9 @@
+import baraja.Carta;
+import baraja.Mano;
+import baraja.Palo;
+import integrantes.Jugador;
+import integrantes.Maquina;
+import integrantes.Mesa;
 import utilidades.Util;
 import java.util.ArrayList;
 
@@ -46,9 +52,9 @@ public class Partida {
     }
 
     /**
-     * Metodo para obtener el Palo dando un int
+     * Metodo para obtener el baraja.Palo dando un int
      * @param numPalo
-     * @return Palo / null
+     * @return baraja.Palo / null
      */
     public Palo obtenerPalo(int numPalo) {
         switch (numPalo)

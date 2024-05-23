@@ -4,12 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Modificnado el all in para que se sume ambas cantidades">
+    <list default="true" id="3d683796-464c-42a3-9423-713b6724548b" name="Changes" comment="Arreglado tema del dinero al final d ela ronda">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/CalidadMano.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Carta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Jugador.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mano.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/ManoIncompleta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Maquina.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Mesa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Palo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Partida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proyecto Poker/Registrador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proyecto Poker/Registrador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalidadMano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/baraja/CalidadMano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Carta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/baraja/Carta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/integrantes/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Maquina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/baraja/Mano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManoIncompleta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/baraja/ManoIncompleta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Maquina.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/integrantes/Maquina.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/integrantes/Mesa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Palo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/baraja/Palo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Registrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Registrador.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -107,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716191160668</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Arreglado tema del dinero al final d ela ronda">
+      <option name="closed" value="true" />
+      <created>1716451559000</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716451559000</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -116,7 +142,8 @@
     <MESSAGE value="Vcio maain" />
     <MESSAGE value="Main con bucles modificados y modificados cleans de los jugaadores" />
     <MESSAGE value="Modificnado el all in para que se sume ambas cantidades" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificnado el all in para que se sume ambas cantidades" />
+    <MESSAGE value="Arreglado tema del dinero al final d ela ronda" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado tema del dinero al final d ela ronda" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -127,12 +154,12 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>67</line>
+          <line>70</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>488</line>
+          <line>491</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

@@ -96,7 +96,7 @@ public class Registrador {
                     conjuntoLineasJugador=getFechaFormateada()+" a las "+getHoraFormateada();
                 }
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoJugador))) {
-                    writer.write("Jugador\n"+registro+"========================================\nPartidas: \n"+conjuntoLineasJugador+"\n");
+                    writer.write("integrantes.Jugador\n"+registro+"========================================\nPartidas: \n"+conjuntoLineasJugador+"\n");
                 }
             }
             else {
@@ -136,7 +136,7 @@ public class Registrador {
                     conjuntoLineasJugador=getFechaFormateada()+" a las "+getHoraFormateada();
                 }
                 try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoJugador))) {
-                    writer.write("Jugador\n"+registro+"========================================\nPartidas: \n"+conjuntoLineasJugador+"\n");
+                    writer.write("integrantes.Jugador\n"+registro+"========================================\nPartidas: \n"+conjuntoLineasJugador+"\n");
                 }
                 try (BufferedReader reader = new BufferedReader(new FileReader(archivoMaquina))) { //una vez calculados los porcentajes del jugador, iniciamos el archivo de la máquina en base a esas estadísticas (hace lo mismo pero algunas variables cambian de nombre para que pertenezcan solo a la máquina)
                     String linea;

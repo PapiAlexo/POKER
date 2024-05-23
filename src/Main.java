@@ -1,3 +1,6 @@
+import integrantes.Jugador;
+import integrantes.Maquina;
+import integrantes.Mesa;
 import utilidades.Util;
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +33,7 @@ public class Main {
         } catch (IOException ex) {ex.printStackTrace();}
         Registrador registrador = new Registrador(archivoJugador, archivoMaquina);
 
-        int turno = Util.getNumber(0, 1); /*Para ver quien empieza primero, 0--> maquina 1--> Jugador*/
+        int turno = Util.getNumber(0, 1); /*Para ver quien empieza primero, 0--> maquina 1--> integrantes.Jugador*/
         int opc = 0; /*Variable de opcion jugador*/
         boolean abandona; // para ver si el jugador abandona una ronda
         boolean acabada = false; // para ver si hay un ganador
@@ -130,7 +133,7 @@ public class Main {
                     mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
 
-                    if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                    if ((apuestaMaquina == apuestaJugador)) /*integrantes.Maquina iguala */
                     {
                         System.out.println();
                         System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
@@ -270,7 +273,7 @@ public class Main {
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
 
-                        if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                        if ((apuestaMaquina == apuestaJugador)) /*integrantes.Maquina iguala */
                         {
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
@@ -410,7 +413,7 @@ public class Main {
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
 
-                        if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                        if ((apuestaMaquina == apuestaJugador)) /*integrantes.Maquina iguala */
                         {
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");
@@ -549,7 +552,7 @@ public class Main {
                         apuestaMaquina = maquina.obtenerCalidadMano(fase, apuestaJugador);
                         mesa.añadirDineroApuestas(apuestaMaquina); // ponemos la apuesta de la maquina sobre la mesa
 
-                        if ((apuestaMaquina == apuestaJugador)) /*Maquina iguala */
+                        if ((apuestaMaquina == apuestaJugador)) /*integrantes.Maquina iguala */
                         {
                             System.out.println();
                             System.out.println("Tu contrincante ha igualado la siguiente cantidad --> [ " + apuestaMaquina + " ]");

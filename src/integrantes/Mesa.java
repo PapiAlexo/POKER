@@ -1,3 +1,7 @@
+package integrantes;
+
+import baraja.Carta;
+
 import java.util.ArrayList;
 public class Mesa {
     protected ArrayList<Carta> mano;

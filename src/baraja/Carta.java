@@ -1,3 +1,5 @@
+package baraja;
+
 public class Carta {
     protected int numero;
     protected Palo palo;
